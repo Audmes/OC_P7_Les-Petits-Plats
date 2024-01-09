@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+/**
+ * Template : Les Petits Plats
+ * By Audrey Mesnage
+ */
+/* Colors */
+ :root, [data-theme="default"] {
+    --color-primary: #FFD15B;
+    --color-secondary: black;
+    --color-tertiary: grey;
+    --color-complementary: lightgrey;
+
+    --color-black: #000;
+    --color-white: #fff;
+
+    --max-width: 1440px;
+}
+
+/* Resets */
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base */
+body {
+    background-color: var(--color-white);
+}
+
+header {
+    width: 100%;
+    height: 667px;
+    /* background-image: url('../images/bg.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 60%; */
+}
+
+/* Header */
+.header__logo {
+    position: absolute;
+    left: 69px;
+    top: 51px;
+}
+
+.header__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%), url('../images/bg.jpeg'), lightgray 50% / cover no-repeat;
+    /* background-image: url('../images/bg.jpeg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 65%;
+}
+
+.header__title__wrapper {
+    width: 890px;
+    margin-bottom: 29.42px;
+}
+
+.header__search__wrapper {
+    position: relative;
+    width: 954px;
+    height: 72px;
+}
+
+/* Header Search bar */
+form.header__search input[type=text] {
+    height: 72px;
+    width: 100%;
+    padding: 24px 0;
+    padding-left: 35px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    border-radius: 11px;
+    background: #FFF;
+  }
+  
+  form.header__search button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 51px;
+    height: 52px;
+    border-radius: 10px;
+    background: var(--Black, #1B1B1B);
+
+    padding: 10px;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  form.header__search button:hover {
+    background: var(--color-primary);
+  }
+
+/* Typography */
+.header__title {
+    color: var(--color-primary);
+    text-align: center;
+    font-family: Anton;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Helpers */
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+  
+.wrapper {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    max-width: var(--max-width);
+}
+  
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    /* margin-right: -15px;
+    margin-left: -15px; */
+}
+  
+.justify-content-center {
+  justify-content: center!important;
+}
+  
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+  
+.no-gutters > .col,
+.no-gutters > [class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+  
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+.col-auto {
+  position: relative;
+  width: 100%;
+  /* padding-right: 15px;
+  padding-left: 15px; */
+}
+  
+.col {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}
+  
+.col-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+}
+
+.col-1 {
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+}
+  
+.col-2 {
+  -ms-flex: 0 0 16.666667%;
+  flex: 0 0 16.666667%;
+  max-width: 16.666667%;
+}
+
+.col-3 {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+  
+.col-4 {
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+  
+.col-5 {
+  -ms-flex: 0 0 41.666667%;
+  flex: 0 0 41.666667%;
+  max-width: 41.666667%;
+}
+  
+.col-6 {
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+  
+.col-7 {
+  -ms-flex: 0 0 58.333333%;
+  flex: 0 0 58.333333%;
+  max-width: 58.333333%;
+}
+  
+.col-8 {
+  -ms-flex: 0 0 66.666667%;
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+}
+
+.col-9 {
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+  
+.col-10 {
+  -ms-flex: 0 0 83.333333%;
+  flex: 0 0 83.333333%;
+  max-width: 83.333333%;
+}
+
+.col-11 {
+  -ms-flex: 0 0 91.666667%;
+  flex: 0 0 91.666667%;
+  max-width: 91.666667%;
+}
+
+.col-12 {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
