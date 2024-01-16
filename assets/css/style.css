@@ -155,7 +155,7 @@ button.clearBtn__header {
 }
 
 button.clearBtn__drop {
-    width: 6;
+    width: 6px;
     height: 36px;
     right: 50px;
     stroke-width: 1px;
