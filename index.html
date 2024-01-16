@@ -10,12 +10,12 @@
     <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <header>
-        <div class="header__logo">
-            <img src="./assets/images/les_petits_plats.svg" alt="Logo">
-            <img src="./assets/images/round.svg" alt="round">
-        </div>
+    <header> 
         <div class="header__wrapper wrapper">
+            <div class="header__logo">
+                <img src="./assets/images/les_petits_plats.svg" alt="Logo">
+                <img src="./assets/images/round.svg" alt="round">
+            </div>
             <div class="header__title__wrapper">
                 <h1 class="header__title">
                     CHERCHEZ PARMI PLUS DE 1500 RECETTES <br>
@@ -24,18 +24,159 @@
             </div>
 
             <div class="header__search__wrapper">
-                <form class="header__search" action="#">
+                <div class="header__search" action="#">
                     <input type="text" placeholder="Rechercher une recette, un ingrédient, ..." name="search">
-                    <button type="submit">
-                        <img src="./assets/images/search.png" alt="Search">
+                    <button id="search" type="button" class="search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <circle cx="10" cy="10" r="9.5" stroke="white"/>
+                            <line x1="18.3536" y1="18.6464" x2="27.3536" y2="27.6464" stroke="white"/>
+                        </svg>
                     </button>
-                </form>
+                    <button id="clear" type="button" class="clearBtn clearBtn__header hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                            <path d="M15 15L8.5 8.5M8.5 8.5L2 2M8.5 8.5L15 2M8.5 8.5L2 15" stroke="#7A7A7A" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="cooking__section"></section>
+        <div class="filters__wrapper wrapper">
+            <div class="filters__selection__wrapper col-8">
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <span>Ingrédients</span>
+                        <span class="arrow-up rotate">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="6" viewBox="0 0 13 6" fill="none">
+                                <path d="M1 7L7.5 1L14 7" stroke="#1B1B1B" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </button>
+                    
+                    <div id="myDropdown1" class="dropdown-content">
+                        <div class="dropsearch__wrapper">
+                            <input type="text" placeholder="Search.." name="dropInput-1" class="dropInput">
+                            <button type="button" class="search">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 14" fill="none">
+                                    <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5"/>
+                                    <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5"/>
+                                </svg>
+                            </button>
+                            <button type="button" class="clearBtn clearBtn__drop">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 8 8" fill="none">
+                                    <path d="M7 7L4 4M4 4L1 1M4 4L7 1M4 4L1 7" stroke="#7A7A7A" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div id="dropIngredients" class="drop__wrapper">
+                            <a href="#about">About</a>
+                            <a href="#base">Base</a>
+                            <a href="#blog">Blog</a>
+                            <a href="#contact">Contact</a>
+                            <a href="#custom">Custom</a>
+                            <a href="#support">Support</a>
+                            <a href="#tools">Tools</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <span>Appareils</span>
+                        <span class="arrow-up rotate">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="6" viewBox="0 0 13 6" fill="none">
+                                <path d="M1 7L7.5 1L14 7" stroke="#1B1B1B" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div id="myDropdown2" class="dropdown-content">
+                        <div class="dropsearch__wrapper">
+                            <input type="text" placeholder="Search.." name="dropInput-2" class="dropInput">
+                            <button type="button" class="search">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 14" fill="none">
+                                    <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5"/>
+                                    <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5"/>
+                                </svg>
+                            </button>
+                            <button type="button" class="clearBtn clearBtn__drop">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 8 8" fill="none">
+                                    <path d="M7 7L4 4M4 4L1 1M4 4L7 1M4 4L1 7" stroke="#7A7A7A" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div id="dropApp" class="drop__wrapper">
+                            <a href="#about">About</a>
+                            <a href="#base">Base</a>
+                            <a href="#blog">Blog</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <span>Ustensiles</span>
+                        <span class="arrow-up rotate">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="6" viewBox="0 0 13 6" fill="none">
+                                <path d="M1 7L7.5 1L14 7" stroke="#1B1B1B" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div id="myDropdown3" class="dropdown-content">
+                        <div class="dropsearch__wrapper">
+                            <input type="text" placeholder="Search.." name="dropInput-3" class="dropInput">
+                            <button type="button" class="search">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 14" fill="none">
+                                    <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5"/>
+                                    <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5"/>
+                                </svg>
+                            </button>
+                            <button type="button" class="clearBtn clearBtn__drop">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 8 8" fill="none">
+                                    <path d="M7 7L4 4M4 4L1 1M4 4L7 1M4 4L1 7" stroke="#7A7A7A" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div id="dropUstensiles" class="drop__wrapper">
+                            <a href="#contact">Contact</a>
+                            <a href="#custom">Custom</a>
+                            <a href="#support">Support</a>
+                            <a href="#tools">Tools</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="filters__title">
+                    <h2>1500 recettes</h2>
+                </div>
+            </div>
+        </div>
+        <section id="tagslist" class="tagslist__section wrapper">
+            <!-- Tags -->
+            <div class="tag">
+                <p>Noix de Coco</p>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 13" fill="none">
+                        <path d="M12 11.5L7 6.5M7 6.5L2 1.5M7 6.5L12 1.5M7 6.5L2 11.5" stroke="#1B1B1B" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </i>
+            </div>
+
+            <div class="tag">
+                <p>Sucre</p>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 13" fill="none">
+                        <path d="M12 11.5L7 6.5M7 6.5L2 1.5M7 6.5L12 1.5M7 6.5L2 11.5" stroke="#1B1B1B" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </i>
+            </div>
+        </section>
+        <section id="list" class="cooking__section wrapper">
+            <!-- Recipes -->
+        </section>
     </main>
+    <script src="assets/js/main.js" type="module"></script>
 </body>
 </html>
