@@ -482,6 +482,15 @@ button.clearBtn__drop {
     background: var(--color-primary);
 }
 
+.tag h2 {
+    color: #000;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 /* Cooking Section */
 .cooking__section {
     width: 100%;
