@@ -1,3 +1,6 @@
+import { displayRecipes } from '../templates/recipes.js';
+import { displayTotalRecipes } from './counters.js';
+
 export const searchBar = recipes => {
     const searchInput = document.querySelector("input[name='search']");
     const searchButton = document.getElementById('search');
@@ -5,26 +8,26 @@ export const searchBar = recipes => {
     const list = document.getElementById('list');
 
     // Clear List
-    function clearList(){
-        // looping through each child of the search results list and remove each child
+    function clearList() {
+        // Clear the list
         list.innerHTML = '';
-        // while (list.firstChild){
-        //     list.removeChild(list.firstChild)
-        // }
     }
 
     // Clear Button / Clear All
     clearButton.addEventListener("click", () => {
-        // 1. write a function that removes any previous results from the page
-        // looping through each child of the search results list and remove each child
+        // Function that removes any previous results from the page
         clearButton.classList.remove('show');
         clearButton.classList.add('hidden');
         searchInput.value = '';
+        // Clear all
         clearList();
+        // Display all recipes
+        displayRecipes(recipes);
+        // Display total counts recipes
+        displayTotalRecipes(recipes);
     });
 
     // Clear Input : Clear Button hidden / Show
-    // tranformer en fonction
     searchInput.addEventListener("input", () => {
         if(!searchInput.value == '') {
             clearButton.classList.remove('hidden');
@@ -35,36 +38,58 @@ export const searchBar = recipes => {
         }
     });
 
-    // Search Button
+    // Search Button event "click"
     searchButton.addEventListener("click", () => {
-        // inside, we will need to achieve a few things:
-        // 1. declare and assign the value of the event's target to a variable AKA whatever is typed in the search bar
-        let value = searchInput.value;
-        // let value = e.target.value;
-        // let value = e;
 
-        // 2. check: if input exists and if input is larger than 0
-        if (value && value.trim().length > 2){
-            // 3. redefine 'value' to exclude white space and change input to all lowercase
+        let value = searchInput.value;
+        const searchButton = document.getElementById('search');
+
+        // Check: if input exists and if input is larger than 2
+        if (value && value.trim().length > 2) {
+            // Redefine 'value' to exclude white space and change input to all lowercase
             value = value.trim().toLowerCase();
-            // 4. return the results only if the value of the search is included in the person's name
-            //returning only the results of setList if the value of the search is included in the person's name
+            
+            // Return the results only if the value of the search is included in the recipes name, description and ingredient list
             setList(recipes.filter(recipe => {
-                // let test = recipe.ingredients.forEach(({ ingredient }) => {
-                //     recipe.ingredient.quantity.includes(value);
-                // });
-                // console.log(test);
-                return recipe.name.includes(value)+recipe.description.includes(value);
+
+                // For Recipe Name
+                // const name = recipe.name;
+                // const nameR = recipe.name.includes(value);
+                // console.log(name);
+                // console.log(nameR);
+
+                // For Recipe Description
+                // const description = recipe.description;
+                // const descriptionR = recipe.description.includes(value);
+                // console.log(description);
+                // console.log(descriptionR);
+
+                // For Recipe Ingredients : listing all ingredients : "ingredient"
+                const ingredients = recipe.ingredients.map(function (recipe) {
+                    return recipe["ingredient"]; 
+                });
+                // console.log(ingredients);
+
+                // Ingredients Tab with ingredient includes value
+                const ingredientsFiltres = ingredients.filter(ingredient => {
+                    const ingredientsTab = ingredient.trim().toLowerCase();
+                    
+                    return ingredientsTab.includes(value);
+                });
+                // console.log(ingredientsFiltres);
+
+                return recipe.name.includes(value)+recipe.description.includes(value)+ingredientsFiltres.includes(value);
             }));
-            // we need to write code (a function for filtering through our data to include the search input value)
         } else {
-            // 5. return nothing
-            clearList();
             // input is invalid -- show an error message or show no results
+            // Return nothing and display all Recipes
+            clearList();
+            displayRecipes(recipes);
         }
     });
 
     // No Results
+    // This function display a message : not found !
     function noResults() {
         // create an element for the error; a list item ("li")
         const error = document.createElement('li');
@@ -79,27 +104,17 @@ export const searchBar = recipes => {
         list.appendChild(error);
     }
 
-    // creating and declaring a function called "setList"
+    // SetList
     // setList takes in a param of "results"
     function setList(results){
+        // clear the list
         clearList();
+        // Display recipes
+        displayRecipes(results);
+        // Display total counts recipes
+        displayTotalRecipes(results);
 
-        for (const recipes of results){
-            // creating a li element for each result item
-            const resultItem = document.createElement('li');
-
-            // adding a class to each item of the results
-            resultItem.classList.add('result-item');
-
-            // grabbing the name of the current point of the loop and adding the name as the list item's text
-            const text = document.createTextNode(recipes.name);
-
-            // appending the text to the result item
-            resultItem.appendChild(text);
-
-            // appending the result item to the list
-            list.appendChild(resultItem);
-        }
+        // If result is no recipe
         if (results.length === 0 ){
             noResults();
         }
