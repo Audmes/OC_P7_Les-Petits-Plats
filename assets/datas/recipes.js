@@ -102,7 +102,7 @@ export const recipes = [
             {
                 "ingredient": "Huile d'olive",
                 "quantity": 1,
-               "unit": "cuillères à soupe"
+                "unit": "cuillères à soupe"
             }
         ],
         time: 80,

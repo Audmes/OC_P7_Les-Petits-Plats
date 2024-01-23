@@ -2,43 +2,6 @@
 * Les Petits Plats JS : Recipes Template
 **/
 export const displayRecipes = recipes => {
-
-    // var listHTML;
-    // function printList (list) {
-    //     listHTML = '<ul>';
-    //     for (var i = 0; i < list.length; i++) {
-    //       for (let recipe in list) {
-    //         console.log(list[recipe].ingredients);
-    //       }
-    //     }
-    //     listHTML += '</ul>';
-    //     console.log(listHTML);
-    // }
-      
-    // printList(recipes);
-
-    // for(let i in recipes){
-    //     console.log(recipes[i]);
-    // }
-
-    // const recipeDesc = recipes.map(recipes => recipes.ingredients);
-    // console.log(recipeDesc);
-
-    // var monObjet = recipes;
-    // var monTableau = Object.keys(monObjet).map(function(cle) {
-    //     return [Number(cle), monObjet[cle]];
-    // });
-
-    // console.log(monTableau);
-
-    // var tabMult = new Array(10); // 10 "lignes" 
-    
-    // for (var i = 0; i < tabMult.length; i++) { 
-    //     tabMult[i] = new Array(10); // 10 "colonnes" 
-    //     for(var j = 0; j < tabMult[i].length; j++) { 
-    //         tabMult[i][j] = i*j; 
-    //     } 
-    // }
     
     const createCard = recipe => {
         const cookingSection = document.querySelector('.cooking__section');
@@ -47,7 +10,6 @@ export const displayRecipes = recipes => {
         
         // const recipeIngredients = recipes.map(recipe => recipe.ingredients);
         // console.log(recipeIngredients);
-
 
         article.innerHTML = `
             <div class="recipe__image">
