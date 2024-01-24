@@ -84,7 +84,10 @@ export const searchBar = recipes => {
             // input is invalid -- show an error message or show no results
             // Return nothing and display all Recipes
             clearList();
+            // Display all recipes
             displayRecipes(recipes);
+            // Display total counts recipes
+            displayTotalRecipes(recipes);
         }
     });
 
