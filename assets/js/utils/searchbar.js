@@ -1,3 +1,4 @@
+import { displayfilters } from '../templates/filters.js';
 import { displayRecipes } from '../templates/recipes.js';
 import { displayTotalRecipes } from './counters.js';
 
@@ -7,78 +8,51 @@ export const searchBar = recipes => {
     const clearButton = document.getElementById('clear');
     const list = document.getElementById('list');
 
-    // Clear List
+    // This function clear recipes list
     function clearList() {
         // Clear the list
         list.innerHTML = '';
     }
 
-    // Clear Button / Clear All
-    clearButton.addEventListener("click", () => {
-        // Function that removes any previous results from the page
-        clearButton.classList.remove('show');
-        clearButton.classList.add('hidden');
-        searchInput.value = '';
-        // Clear all
-        clearList();
-        // Display all recipes
-        displayRecipes(recipes);
-        // Display total counts recipes
-        displayTotalRecipes(recipes);
-    });
-
-    // Clear Input : Clear Button hidden / Show
-    searchInput.addEventListener("input", () => {
-        if(!searchInput.value == '') {
-            clearButton.classList.remove('hidden');
-            clearButton.classList.add('show');
-        }else {
-            clearButton.classList.remove('show');
-            clearButton.classList.add('hidden');
-        }
-    });
-
-    // Search Button event "click"
-    searchButton.addEventListener("click", () => {
-
-        let value = searchInput.value;
-        const searchButton = document.getElementById('search');
+    // This function search and return recipes
+    function searchList() {
+        const value = searchInput.value;
+        // const searchButton = document.getElementById('search');
 
         // Check: if input exists and if input is larger than 2
         if (value && value.trim().length > 2) {
             // Redefine 'value' to exclude white space and change input to all lowercase
-            value = value.trim().toLowerCase();
+            // value = value.trim().toLowerCase();
+            const regex = new RegExp(`${value.trim().toLowerCase()}`);
+            // console.log(regex);
             
             // Return the results only if the value of the search is included in the recipes name, description and ingredient list
             setList(recipes.filter(recipe => {
+                let recipeIsMatching = false;
 
-                // For Recipe Name
-                // const name = recipe.name;
-                // const nameR = recipe.name.includes(value);
-                // console.log(name);
-                // console.log(nameR);
+                const recipeName = recipe.name.trim().toLowerCase();
+                // console.log(recipeName);
 
-                // For Recipe Description
-                // const description = recipe.description;
-                // const descriptionR = recipe.description.includes(value);
+                // const description = recipe.description.trim().toLowerCase();
                 // console.log(description);
-                // console.log(descriptionR);
+
+                if (regex.test(recipeName)) {
+                    recipeIsMatching = true;
+                } else if (regex.test(recipe.description)) {
+                    recipeIsMatching = true;
+                }
 
                 // For Recipe Ingredients : listing all ingredients : "ingredient"
-                const ingredients = recipe.ingredients.map(function (recipe) {
-                    return recipe["ingredient"]; 
-                });
-                // console.log(ingredients);
+                recipe.ingredients.forEach(({ ingredient }) => {
+                    const recipeIngredient = ingredient.trim().toLowerCase();
 
-                // Ingredients Tab with ingredient includes value
-                const ingredientsFiltres = ingredients.filter(ingredient => {
-                    const ingredientsTab = ingredient.trim().toLowerCase();
-                    
-                    return ingredientsTab.includes(value);
+                    if (regex.test(recipeIngredient)) {
+                      recipeIsMatching = true;
+                    }
                 });
-                // console.log(ingredientsFiltres);
 
-                return recipe.name.includes(value)+recipe.description.includes(value)+ingredientsFiltres.includes(value);
+                return recipeIsMatching; 
+
             }));
         } else {
             // input is invalid -- show an error message or show no results
@@ -89,9 +63,8 @@ export const searchBar = recipes => {
             // Display total counts recipes
             displayTotalRecipes(recipes);
         }
-    });
+    }
 
-    // No Results
     // This function display a message : not found !
     function noResults() {
         // create an element for the error; a list item ("li")
@@ -107,7 +80,7 @@ export const searchBar = recipes => {
         list.appendChild(error);
     }
 
-    // SetList
+    // This function display list of recipes
     // setList takes in a param of "results"
     function setList(results){
         // clear the list
@@ -116,10 +89,62 @@ export const searchBar = recipes => {
         displayRecipes(results);
         // Display total counts recipes
         displayTotalRecipes(results);
+        // Display Filters
+        displayfilters(results);
 
         // If result is no recipe
         if (results.length === 0 ){
             noResults();
         }
     }
+
+    // Clear Button / Clear All
+    clearButton.addEventListener("click", () => {
+        // Function that removes any previous results from the page
+        clearButton.classList.remove('show');
+        clearButton.classList.add('hidden');
+        searchInput.value = '';
+        // Clear all
+        clearList();
+        // Display all recipes
+        displayRecipes(recipes);
+        // Display total counts recipes
+        displayTotalRecipes(recipes);
+        // Display Filters
+        displayfilters(recipes);
+    });
+
+    // Clear Input : Clear Button hidden / Show
+    searchInput.addEventListener("input", () => {
+        if(!searchInput.value == '') {
+            clearButton.classList.remove('hidden');
+            clearButton.classList.add('show');
+        }else {
+            clearButton.classList.remove('show');
+            clearButton.classList.add('hidden');
+        }
+    });
+
+    // Search Button event "click"
+    searchButton.addEventListener("click", searchList);
+
+    // Keyup
+    searchInput.addEventListener('keyup', e => {
+        switch(e.key) {
+            case 'Enter':
+                searchList();
+                break;
+        }
+    });
+
+    // Or if you prefer to use a research with Input event 
+    
+    // Search Input event "keyup"
+    // let typingTimer;
+    // const typeInterval = 100;
+
+    // searchInput.addEventListener('keyup', () => {
+    //     clearTimeout(typingTimer);
+    //     typingTimer = setTimeout(searchList(), typeInterval);
+    // });
 }

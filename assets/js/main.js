@@ -3,11 +3,16 @@ import { recipes } from '../datas/recipes.js';
 import { displayRecipes } from './templates/recipes.js';
 import { searchBar } from './utils/searchbar.js';
 import { displayTotalRecipes } from './utils/counters.js';
+import { displayfilters } from './templates/filters.js';
 
 const displayPage = async () => {
     // SearchBar
     searchBar(recipes);
-    // Affichage des Recettes
+    
+    // Display Filters
+    displayfilters(recipes);
+    
+    // Display Recipes
     displayRecipes(recipes);
     displayTotalRecipes(recipes);
 };
