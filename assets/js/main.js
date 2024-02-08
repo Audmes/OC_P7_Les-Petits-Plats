@@ -4,6 +4,7 @@ import { displayRecipes } from './templates/recipes.js';
 import { searchBar } from './utils/searchbar.js';
 import { displayTotalRecipes } from './utils/counters.js';
 import { displayfilters } from './templates/filters.js';
+import { displayTags } from './templates/tags.js';
 
 const displayPage = async () => {
     // SearchBar
@@ -11,6 +12,9 @@ const displayPage = async () => {
     
     // Display Filters
     displayfilters(recipes);
+
+    // Display Tags
+    displayTags(recipes);
     
     // Display Recipes
     displayRecipes(recipes);

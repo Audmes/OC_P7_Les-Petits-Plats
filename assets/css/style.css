@@ -402,14 +402,17 @@ button.clearBtn__drop {
     width: 100%;
 }
 
-.drop__wrapper a {
+.drop__wrapper li {
+    position: relative;
     color: black;
     padding: 9px 16px;
+    padding-right: 32px;
     text-decoration: none;
     display: block;
+    cursor: pointer;
 }
 
-.drop__wrapper a {
+.drop__wrapper li {
     color: var(--Black, #1B1B1B);
     font-family: Manrope;
     font-size: 14px;
@@ -418,7 +421,23 @@ button.clearBtn__drop {
     line-height: normal;
 }
 
-.dropdown a:hover { background-color: var(--color-primary); }
+.drop__wrapper li span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 17px;
+    height: 17px;
+    right: 16px;
+}
+
+.dropdown li:hover { 
+    background-color: var(--color-primary); 
+}
+
+.selected {
+    font-weight: 800 !important;
+    background-color: var(--color-primary);
+}
 
 .dropsearch__wrapper {
     position: relative;
@@ -471,6 +490,13 @@ button.clearBtn__drop {
     flex-wrap: wrap;
     gap: 60px;
     background-color: var(--color-bg);
+}
+
+.tag__ingredients--wrapper, .tag__appliances--wrapper, .tag__ustensils--wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px 60px;
+    justify-content: flex-start;
 }
 
 .tag {
