@@ -19,7 +19,7 @@ export const displayfilters = recipes => {
     recipes.forEach((recipe) => {
         /** Ingredients **/
         recipe.ingredients.forEach(({ ingredient }) => {
-            let ingredientRegex = ingredient.trim().toLowerCase();
+            const ingredientRegex = ingredient.trim().toLowerCase();
 
             if (ingredientsList.includes(ingredientRegex) === false) {
                 ingredientsList.push(ingredientRegex);
@@ -31,12 +31,6 @@ export const displayfilters = recipes => {
                 const span = document.createElement('span');
                 span.classList.add('delete');
                 span.classList.add('hidden');
-                // svg.setAttribute('width', '17');
-                // svg.setAttribute('height', '17');
-                // svg.setAttribute('viewBox', '0 0 17 17');
-                // svg.setAttribute('fill', 'none');
-                // svg.classList.add('deleteIcon');
-                // svg.classList.add('delete');
                 span.innerHTML = `
                     <svg class="deleteIcon" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
@@ -70,8 +64,9 @@ export const displayfilters = recipes => {
         /** ustensils **/
         // if tags already used, don't push it.
         recipe.ustensils.forEach((ustensil) => {
-            if (ustensilsList.includes(ustensil) === false) {
-                ustensilsList.push(ustensil);
+            const ustensilRegex = ustensil.trim().toLowerCase();
+            if (ustensilsList.includes(ustensilRegex) === false) {
+                ustensilsList.push(ustensilRegex);
                 const filterItem = document.createElement('li');
                 filterItem.classList.add('filter__ustensils--items');
                 filterItem.innerText = ustensil;

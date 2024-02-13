@@ -46,35 +46,35 @@ export const displayTags = () => {
     const filterItemAppliances = [...document.getElementsByClassName('filter__appliances--items')];
     const filterItemUstensils = [...document.getElementsByClassName('filter__ustensils--items')];
 
-    function deleteTag(tagsAlreadyAdded, tag) {
-        console.log(tag);
-        const deleteTag = [...document.getElementsByClassName('delete')];
-        console.log(deleteTag);
-        console.log(tagsAlreadyAdded);
+    // function deleteTag(tagsAlreadyAdded, tag) {
+    //     console.log(tag);
+    //     const deleteTag = [...document.getElementsByClassName('delete')];
+    //     console.log(deleteTag);
+    //     console.log(tagsAlreadyAdded);
 
-        let deleteButton = deleteTag.filter((icon) => icon.className === 'delete');
+    //     let deleteButton = deleteTag.filter((icon) => icon.className === 'delete');
 
-        deleteButton.forEach((element) => element.addEventListener('click', (e) => {
-            console.log(element);
-            // Remove li class selected
-            element.parentElement.classList.remove('selected');
-            element.classList.add('hidden');
-            tag.classList.add('hidden');
+    //     deleteButton.forEach((element) => element.addEventListener('click', (e) => {
+    //         console.log(element);
+    //         // Remove li class selected
+    //         element.parentElement.classList.remove('selected');
+    //         element.classList.add('hidden');
+    //         tag.classList.add('hidden');
 
-            const nameTag = tag.innerText.trim().toLowerCase();
-            const index = tagsAlreadyAdded.indexOf(nameTag);
-            tagsAlreadyAdded.splice(index, 1);
+    //         const nameTag = tag.innerText.trim().toLowerCase();
+    //         const index = tagsAlreadyAdded.indexOf(nameTag);
+    //         tagsAlreadyAdded.splice(index, 1);
 
-            return false;
-        }));
-    }
+    //         return false;
+    //     }));
+    // }
 
     filterItemIngredients.forEach(element => {
         let text = element.innerText.trim().toLowerCase();
 
         element.addEventListener('click', (e) => {
 
-            let tags = document.getElementsByClassName('tag__ingredient');
+            let tagsIngredient = document.getElementsByClassName('tag__ingredient');
 
             // const test = element.innerText.trim().toLowerCase();
             // console.log(test);
@@ -90,7 +90,7 @@ export const displayTags = () => {
                     target.classList.add('selected');
                     target.children[0].classList.remove('hidden');
 
-                    for(let val of tags) {
+                    for(let val of tagsIngredient) {
                         if(val.innerText.trim().toLowerCase() == text) {
                             tag = val;
                             tag.classList.remove('hidden');
@@ -102,7 +102,7 @@ export const displayTags = () => {
                 target.classList.remove('selected');
                 target.children[0].classList.add('hidden');
 
-                for(let val of tags) {
+                for(let val of tagsIngredient) {
                     if(val.innerText.trim().toLowerCase() == text) {
                         tag = val;
                         tag.classList.add('hidden');
@@ -118,56 +118,76 @@ export const displayTags = () => {
     });
 
     filterItemAppliances.forEach(element => {
+        let text = element.innerText.trim().toLowerCase();
+
         element.addEventListener('click', (e) => {
-
-            var tags = document.getElementsByClassName('tag__appliance');
-            const text = e.target.innerText.trim().toLowerCase();
-
+            let tagsAppliance = document.getElementsByClassName('tag__appliance');
             let tag;
+            let target = e.currentTarget;
 
-            for(let val of tags) {
-                if(val.innerText.trim().toLowerCase() == text) {
+            if(tagApplianceAlreadyAdded.includes(text) === false) {
                     tagApplianceAlreadyAdded.push(text);
-
-                    const target = e.currentTarget;
                     target.classList.add('selected');
+                    target.children[0].classList.remove('hidden');
 
-                    const icon = createIcon();
-                    target.appendChild(icon);
-                    
-                    tag = val;
-                    tag.classList.remove('hidden');
-                    // result.innerText = val.innerText.trim().toLowerCase();
+                    for(let val of tagsAppliance) {
+                        if(val.innerText.trim().toLowerCase() == text) {
+                            tag = val;
+                            tag.classList.remove('hidden');
+                        }
+                    }
+            }else {
+                target.classList.remove('selected');
+                target.children[0].classList.add('hidden');
+
+                for(let val of tagsAppliance) {
+                    if(val.innerText.trim().toLowerCase() == text) {
+                        tag = val;
+                        tag.classList.add('hidden');
+                    }
                 }
+                const nameTag = tag.innerText.trim().toLowerCase();
+
+                const index = tagApplianceAlreadyAdded.indexOf(nameTag);
+                tagApplianceAlreadyAdded.splice(index, 1);
             }
-            // console.log(tag);
-            tag.classList.remove('hidden');
         });
     });
 
     filterItemUstensils.forEach(element => {
+        let text = element.innerText.trim().toLowerCase();
+
         element.addEventListener('click', (e) => {
-            var tags = document.getElementsByClassName('tag__ustensil');
-            const text = e.target.innerText.trim().toLowerCase();
-
+            let tagsUstensil = document.getElementsByClassName('tag__ustensil');
             let tag;
+            let target = e.currentTarget;
 
-            for(let val of tags) {
-                if(val.innerText.trim().toLowerCase() == text) {
+            if(tagUstensilAlreadyAdded.includes(text) === false) {
                     tagUstensilAlreadyAdded.push(text);
-
-                    const target = e.currentTarget;
                     target.classList.add('selected');
-                    const icon = createIcon();
-                    target.appendChild(icon);
-                    
-                    tag = val;
-                    tag.classList.remove('hidden');
-                    // result.innerText = val.innerText.trim().toLowerCase();
+                    target.children[0].classList.remove('hidden');
+
+                    for(let val of tagsUstensil) {
+                        if(val.innerText.trim().toLowerCase() == text) {
+                            tag = val;
+                            tag.classList.remove('hidden');
+                        }
+                    }
+            }else {
+                target.classList.remove('selected');
+                target.children[0].classList.add('hidden');
+
+                for(let val of tagsUstensil) {
+                    if(val.innerText.trim().toLowerCase() == text) {
+                        tag = val;
+                        tag.classList.add('hidden');
+                    }
                 }
+                const nameTag = tag.innerText.trim().toLowerCase();
+
+                const index = tagUstensilAlreadyAdded.indexOf(nameTag);
+                tagUstensilAlreadyAdded.splice(index, 1);
             }
-            // console.log(tag);
-            tag.classList.remove('hidden');
         });
     });
 }     
