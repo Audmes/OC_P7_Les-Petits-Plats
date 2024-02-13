@@ -1,12 +1,12 @@
 import { displayfilters } from '../templates/filters.js';
-import { displayRecipes } from '../templates/recipes.js';
+import { displayData } from './recipes.js';
 import { displayTotalRecipes } from './counters.js';
 
 export const searchBar = recipes => {
     const searchInput = document.querySelector("input[name='search']");
     const searchButton = document.getElementById('search');
     const clearButton = document.getElementById('clear');
-    const list = document.getElementById('list');
+    const list = document.getElementById('cooking__section');
 
     // This function clear recipes list
     function clearList() {
@@ -17,24 +17,18 @@ export const searchBar = recipes => {
     // This function search and return recipes
     function searchList() {
         const value = searchInput.value;
-        // const searchButton = document.getElementById('search');
 
         // Check: if input exists and if input is larger than 2
         if (value && value.trim().length > 2) {
             // Redefine 'value' to exclude white space and change input to all lowercase
             // value = value.trim().toLowerCase();
             const regex = new RegExp(`${value.trim().toLowerCase()}`);
-            // console.log(regex);
             
             // Return the results only if the value of the search is included in the recipes name, description and ingredient list
             setList(recipes.filter(recipe => {
                 let recipeIsMatching = false;
 
                 const recipeName = recipe.name.trim().toLowerCase();
-                // console.log(recipeName);
-
-                // const description = recipe.description.trim().toLowerCase();
-                // console.log(description);
 
                 if (regex.test(recipeName)) {
                     recipeIsMatching = true;
@@ -59,7 +53,7 @@ export const searchBar = recipes => {
             // Return nothing and display all Recipes
             clearList();
             // Display all recipes
-            displayRecipes(recipes);
+            displayData(recipes);
             // Display total counts recipes
             displayTotalRecipes(recipes);
         }
@@ -86,7 +80,7 @@ export const searchBar = recipes => {
         // clear the list
         clearList();
         // Display recipes
-        displayRecipes(results);
+        displayData(results);
         // Display total counts recipes
         displayTotalRecipes(results);
         // Display Filters
@@ -107,7 +101,7 @@ export const searchBar = recipes => {
         // Clear all
         clearList();
         // Display all recipes
-        displayRecipes(recipes);
+        displayData(recipes);
         // Display total counts recipes
         displayTotalRecipes(recipes);
         // Display Filters

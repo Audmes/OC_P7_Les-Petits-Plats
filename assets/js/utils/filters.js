@@ -88,15 +88,15 @@ function filterFunction(btn) {
     let filter = input.toUpperCase();
 
     let div = document.querySelector(".drop__wrapper");
-    let a = div.getElementsByTagName("a");
+    let li = div.getElementsByTagName("li");
 
-    for (let i = 0; i < a.length; i++) {
-      let txtValue = a[i].textContent || a[i].innerText;
+    for (let i = 0; i < li.length; i++) {
+      let txtValue = li[i].textContent || li[i].innerText;
 
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        a[i].style.display = "";
+        li[i].style.display = "";
       } else {
-        a[i].style.display = "none";
+        li[i].style.display = "none";
       }
     }
 }

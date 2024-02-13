@@ -1,24 +1,32 @@
 import './utils/filters.js';
 import { recipes } from '../datas/recipes.js';
-import { displayRecipes } from './templates/recipes.js';
+import { displayData } from './utils/recipes.js';
 import { searchBar } from './utils/searchbar.js';
 import { displayTotalRecipes } from './utils/counters.js';
 import { displayfilters } from './templates/filters.js';
-import { displayTags } from './templates/tags.js';
+import { displayTags } from './utils/tags.js';
 
-const displayPage = async () => {
+// let recipes = [];
+
+async function getData() {
+//   const response = await fetch ('data/recipes.json');
+//   recipes = (await response.json()).recipes;
+  init();
+}
+
+function init() {
+    /* Afficher les recipes */ 
+    displayData(recipes);
+    displayTotalRecipes(recipes);
+
     // SearchBar
     searchBar(recipes);
     
-    // Display Filters
+    /* Afficher les filtres */
     displayfilters(recipes);
 
-    // Display Tags
+    /* Afficher les tags */
     displayTags(recipes);
-    
-    // Display Recipes
-    displayRecipes(recipes);
-    displayTotalRecipes(recipes);
-};
+}
 
-displayPage();
+getData();
