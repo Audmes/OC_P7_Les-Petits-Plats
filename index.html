@@ -55,7 +55,7 @@
                         </span>
                     </button>
                     
-                    <div id="myDropdown1" class="dropdown-content">
+                    <div id="dropdown__ingredients" class="dropdown-content">
                         <div class="dropsearch__wrapper">
                             <input id="ingredients-input" type="text" placeholder="Search.." name="ingredients-input" class="dropInput" aria-label="Search text">
                             <button type="button" class="search" aria-label="Search">
@@ -64,14 +64,14 @@
                                     <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5"/>
                                 </svg>
                             </button>
-                            <button type="button" class="clearBtn clearBtn__drop" aria-label="Clear">
+                            <button type="button" class="clearBtn clearBtn__drop hidden" aria-label="Clear">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 8 8" fill="none">
                                     <path d="M7 7L4 4M4 4L1 1M4 4L7 1M4 4L1 7" stroke="#7A7A7A" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </button>
                         </div>
 
-                        <div id="filter__ingredients" class="filterlist drop__wrapper"></div>
+                        <div id="filter__ingredients" class="drop__wrapper"></div>
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@
                             </svg>
                         </span>
                     </button>
-                    <div id="myDropdown2" class="dropdown-content">
+                    <div id="dropdown__appliances" class="dropdown-content">
                         <div class="dropsearch__wrapper">
                             <input id="appliances-input" type="text" placeholder="Search.." name="appliances-input" class="dropInput" aria-label="Search text">
                             <button type="button" class="search" aria-label="Search">
@@ -93,13 +93,13 @@
                                     <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5"/>
                                 </svg>
                             </button>
-                            <button type="button" class="clearBtn clearBtn__drop" aria-label="Clear">
+                            <button type="button" class="clearBtn clearBtn__drop hidden" aria-label="Clear">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 8 8" fill="none">
                                     <path d="M7 7L4 4M4 4L1 1M4 4L7 1M4 4L1 7" stroke="#7A7A7A" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </button>
                         </div>
-                        <div id="filter__appliances" class="filterlist drop__wrapper"></div>
+                        <div id="filter__appliances" class="drop__wrapper"></div>
                     </div>
                 </div>
 
@@ -112,7 +112,7 @@
                             </svg>
                         </span>
                     </button>
-                    <div id="myDropdown3" class="dropdown-content">
+                    <div id="dropdown__ustensils" class="dropdown-content">
                         <div class="dropsearch__wrapper">
                             <input id="ustensils-input" type="text" placeholder="Search.." name="ustensils-input" class="dropInput" aria-label="Search text">
                             <button type="button" class="search" aria-label="Search">
@@ -121,13 +121,13 @@
                                     <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5"/>
                                 </svg>
                             </button>
-                            <button type="button" class="clearBtn clearBtn__drop" aria-label="Clear">
+                            <button type="button" class="clearBtn clearBtn__drop hidden" aria-label="Clear">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 8 8" fill="none">
                                     <path d="M7 7L4 4M4 4L1 1M4 4L7 1M4 4L1 7" stroke="#7A7A7A" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </button>
                         </div>
-                        <div id="filter__ustensils" class="filterlist drop__wrapper"></div>
+                        <div id="filter__ustensils" class="drop__wrapper"></div>
                     </div>
                 </div>
             </div>
@@ -137,6 +137,7 @@
                 </div>
             </div>
         </div>
+
         <section id="tagslist" class="tagslist__section wrapper">
             <!-- Tags -->
             <div class="tag__ingredients--wrapper"></div>
@@ -151,6 +152,7 @@
                 </svg>
             </div> -->
         </section>
+
         <section id="cooking__section" class="cooking__section wrapper">
             <!-- Recipes -->
         </section>

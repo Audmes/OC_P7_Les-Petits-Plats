@@ -8,10 +8,20 @@ export const searchBar = recipes => {
     const clearButton = document.getElementById('clear');
     const list = document.getElementById('cooking__section');
 
+    /* Tags Wrappers */
+    const tagIngredientWrapper = document.querySelector('.tag__ingredients--wrapper');
+    const tagApplianceWrapper = document.querySelector('.tag__appliances--wrapper');
+    const tagUstensilWrapper = document.querySelector('.tag__ustensils--wrapper');
+
     // This function clear recipes list
     function clearList() {
         // Clear the list
         list.innerHTML = '';
+        
+        // Clear Tags
+        // tagIngredientWrapper.innerHTML = '';
+        // tagApplianceWrapper.innerHTML = '';
+        // tagUstensilWrapper.innerHTML = '';
     }
 
     // This function search and return recipes

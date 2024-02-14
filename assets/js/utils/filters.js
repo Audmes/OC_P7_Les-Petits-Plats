@@ -4,7 +4,7 @@ const filtersBtn = document.querySelectorAll('.dropbtn');
 const dropInput = document.querySelectorAll(".dropInput");
 
 const clearDropButton = document.querySelectorAll('.clearBtn__drop');
-const filterList = document.querySelectorAll('.filterlist');
+const filterList = document.querySelectorAll('.drop__wrapper');
 
 // This function clear recipes list
 // function clearDropList() {
@@ -81,35 +81,40 @@ const filterList = document.querySelectorAll('.filterlist');
 // }
 
 function filterFunction(btn) {
+  
     let input = btn.value;
-
-    console.log(input);
-
-    let filter = input.toUpperCase();
-
-    let div = document.querySelector(".drop__wrapper");
+    let btnParent = btn.parentElement;
+    let clearButton = btnParent.parentElement.children[0].children[2];
+    let filter = input.trim().toUpperCase();
+    // let div = document.querySelector(".drop__wrapper");
+    let div = btnParent.parentElement.children[1];
     let li = div.getElementsByTagName("li");
+
+    if(!btn.value == '') {
+      clearButton.classList.remove('hidden');
+      clearButton.classList.add('show');
+    }else {
+        clearButton.classList.remove('show');
+        clearButton.classList.add('hidden');
+    }
 
     for (let i = 0; i < li.length; i++) {
       let txtValue = li[i].textContent || li[i].innerText;
 
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      if (txtValue.trim().toUpperCase().indexOf(filter) > -1) {
         li[i].style.display = "";
       } else {
         li[i].style.display = "none";
       }
     }
 }
+dropInput.forEach((btn) => btn.addEventListener('keyup', () => { filterFunction(btn); }));
 
-// dropInput.forEach((btn) => btn.addEventListener("keyup", filterFunction));
-
-dropInput.forEach((btn) => btn.addEventListener("keyup", () => {
-
-  // let input = btn;
-  // console.log(input);
+function filterClear(btn) {
+  btn.parentElement.children[0].value = '';
   filterFunction(btn);
-  
-}));
+}
+clearDropButton.forEach((btn) => btn.addEventListener('click', () => { filterClear(btn); }));
 // filtersBtn.forEach((btn) => btn.addEventListener("click", myFunction));
 
 
