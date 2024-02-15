@@ -1,6 +1,8 @@
 import { displayfilters } from '../templates/filters.js';
 import { displayData } from './recipes.js';
 import { displayTotalRecipes } from './counters.js';
+// import { addTagFilterIngredients, addTagFilterAppliances, addTagFilterUstensils } from './tags.js';
+import { displayTags } from './tags.js';
 
 export const searchBar = recipes => {
     const searchInput = document.querySelector("input[name='search']");
@@ -19,9 +21,9 @@ export const searchBar = recipes => {
         list.innerHTML = '';
         
         // Clear Tags
-        // tagIngredientWrapper.innerHTML = '';
-        // tagApplianceWrapper.innerHTML = '';
-        // tagUstensilWrapper.innerHTML = '';
+        tagIngredientWrapper.innerHTML = '';
+        tagApplianceWrapper.innerHTML = '';
+        tagUstensilWrapper.innerHTML = '';
     }
 
     // This function search and return recipes
@@ -69,7 +71,6 @@ export const searchBar = recipes => {
         }
     }
     
-
     // This function display a message : not found !
     function noResults() {
         // create an element for the error; a list item ("li")
@@ -96,6 +97,8 @@ export const searchBar = recipes => {
         displayTotalRecipes(results);
         // Display Filters
         displayfilters(results);
+        // Display Tags
+        displayTags();
 
         // If result is no recipe
         if (results.length === 0 ){
@@ -117,6 +120,8 @@ export const searchBar = recipes => {
         displayTotalRecipes(recipes);
         // Display Filters
         displayfilters(recipes);
+        // Display Tags
+        displayTags();
     });
 
     // Clear Input : Clear Button hidden / Show
@@ -142,8 +147,7 @@ export const searchBar = recipes => {
         }
     });
 
-    // Or if you prefer to use a research with Input event 
-    
+    /* Or if you prefer to use a research with Input event */
     // Search Input event "keyup"
     // let typingTimer;
     // const typeInterval = 100;
