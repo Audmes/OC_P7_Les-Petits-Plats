@@ -68,6 +68,7 @@ export const searchBar = recipes => {
             displayTotalRecipes(recipes);
         }
     }
+    
 
     // This function display a message : not found !
     function noResults() {

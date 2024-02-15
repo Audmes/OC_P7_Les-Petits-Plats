@@ -161,6 +161,7 @@ button.clearBtn__drop {
     stroke-width: 1px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .arrow-up {
@@ -470,7 +471,7 @@ button.clearBtn__drop {
     background-color: transparent;
 
     border: 0;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .dropsearch__wrapper svg {
@@ -515,6 +516,10 @@ button.clearBtn__drop {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.deleteIcon {
+    cursor: pointer;
 }
 
 /* Cooking Section */

@@ -2,6 +2,7 @@
 * Les Petits Plats JS : Add Tags Filters
 **/
 import { createTag } from '../templates/tags.js';
+// import { searchList } from '../utils/searchbar.js';
 
 /* Tags Wrappers */
 const tagIngredientWrapper = document.querySelector('.tag__ingredients--wrapper');
@@ -15,10 +16,45 @@ const tagUstensilAlreadyAdded = [];
 
 export const addTagFilterIngredients = tags => {
     tags.forEach(tag => {
-        const itemTag = createTag(tag);
-        itemTag.classList.add('tag__ingredient');
-        itemTag.classList.add('hidden');
-        tagIngredientWrapper.appendChild(itemTag);
+            const itemTag = createTag(tag);
+            const deleteIconImg = document.createElement('span');
+            deleteIconImg.classList.add('delete');
+            deleteIconImg.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon" width="14" height="14" viewBox="0 0 14 13" fill="none">
+                    <path d="M12 11.5L7 6.5M7 6.5L2 1.5M7 6.5L12 1.5M7 6.5L2 11.5" stroke="#1B1B1B" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            `;
+            
+            itemTag.classList.add('tag__ingredient');
+            itemTag.classList.add('hidden');
+            tagIngredientWrapper.appendChild(itemTag);
+            itemTag.appendChild(deleteIconImg);
+
+            deleteIconImg.addEventListener('click', (e) => {
+                let listSelected = document.getElementsByClassName('selected');
+                // console.log(listSelected);
+                // console.log(e.currentTarget.parentElement.innerText);
+                let targetParent = e.currentTarget.parentElement;
+                let text = targetParent.innerText.trim().toLowerCase();
+                // console.log(text);
+                let li;
+                for(let val of listSelected) {
+                    if(val.innerText.trim().toLowerCase() == text) {
+                        li = val;
+                        li.classList.remove('selected');
+                        li.children[0].classList.add('hidden');
+                    }
+                }
+
+                let target = e.currentTarget.parentElement;
+                target.classList.add('hidden');
+
+                const index = tagIngredientAlreadyAdded.indexOf(text);
+                tagIngredientAlreadyAdded.splice(index, 1);
+                // searchList();
+                // return false;
+            });
+            // searchList();
     });
 }
 
@@ -96,7 +132,6 @@ export const displayTags = () => {
                             tag.classList.remove('hidden');
                         }
                     }
-
             }else {
 
                 target.classList.remove('selected');
