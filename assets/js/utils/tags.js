@@ -16,63 +16,129 @@ const tagUstensilAlreadyAdded = [];
 
 export const addTagFilterIngredients = tags => {
     tags.forEach(tag => {
-            const itemTag = createTag(tag);
-            const deleteIconImg = document.createElement('span');
-            deleteIconImg.classList.add('delete');
-            deleteIconImg.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon" width="14" height="14" viewBox="0 0 14 13" fill="none">
-                    <path d="M12 11.5L7 6.5M7 6.5L2 1.5M7 6.5L12 1.5M7 6.5L2 11.5" stroke="#1B1B1B" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            `;
-            
-            itemTag.classList.add('tag__ingredient');
-            itemTag.classList.add('hidden');
-            tagIngredientWrapper.appendChild(itemTag);
-            itemTag.appendChild(deleteIconImg);
+        const itemTag = createTag(tag);
+        const deleteIconImg = document.createElement('span');
+        deleteIconImg.classList.add('delete');
+        deleteIconImg.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon" width="14" height="14" viewBox="0 0 14 13" fill="none">
+                <path d="M12 11.5L7 6.5M7 6.5L2 1.5M7 6.5L12 1.5M7 6.5L2 11.5" stroke="#1B1B1B" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        `;
+        
+        itemTag.classList.add('tag__ingredient');
+        itemTag.classList.add('hidden');
+        tagIngredientWrapper.appendChild(itemTag);
+        itemTag.appendChild(deleteIconImg);
 
-            deleteIconImg.addEventListener('click', (e) => {
-                let listSelected = document.getElementsByClassName('selected');
-                // console.log(listSelected);
-                // console.log(e.currentTarget.parentElement.innerText);
-                let targetParent = e.currentTarget.parentElement;
-                let text = targetParent.innerText.trim().toLowerCase();
-                // console.log(text);
-                let li;
-                for(let val of listSelected) {
-                    if(val.innerText.trim().toLowerCase() == text) {
-                        li = val;
-                        li.classList.remove('selected');
-                        li.children[0].classList.add('hidden');
-                    }
+        deleteIconImg.addEventListener('click', (e) => {
+            let listSelected = document.getElementsByClassName('selected');
+            // console.log(listSelected);
+            // console.log(e.currentTarget.parentElement.innerText);
+            let targetParent = e.currentTarget.parentElement;
+            let text = targetParent.innerText.trim().toLowerCase();
+            // console.log(text);
+            let li;
+            for(let val of listSelected) {
+                if(val.innerText.trim().toLowerCase() == text) {
+                    li = val;
+                    li.classList.remove('selected');
+                    li.children[0].classList.add('hidden');
                 }
+            }
 
-                let target = e.currentTarget.parentElement;
-                target.classList.add('hidden');
+            let target = e.currentTarget.parentElement;
+            target.classList.add('hidden');
 
-                const index = tagIngredientAlreadyAdded.indexOf(text);
-                tagIngredientAlreadyAdded.splice(index, 1);
-                // searchList();
-                // return false;
-            });
+            const index = tagIngredientAlreadyAdded.indexOf(text);
+            tagIngredientAlreadyAdded.splice(index, 1);
             // searchList();
+            // return false;
+        });
+        // searchList();
     });
 }
 
 export const addTagFilterAppliances = tags => {
     tags.forEach(tag => {
         const itemTag = createTag(tag);
+        const deleteIconImg = document.createElement('span');
+        deleteIconImg.classList.add('delete');
+        deleteIconImg.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon" width="14" height="14" viewBox="0 0 14 13" fill="none">
+                <path d="M12 11.5L7 6.5M7 6.5L2 1.5M7 6.5L12 1.5M7 6.5L2 11.5" stroke="#1B1B1B" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        `;
+
         itemTag.classList.add('tag__appliance');
         itemTag.classList.add('hidden');
         tagApplianceWrapper.appendChild(itemTag);
+        itemTag.appendChild(deleteIconImg);
+
+        deleteIconImg.addEventListener('click', (e) => {
+            let listSelected = document.getElementsByClassName('selected');
+            let targetParent = e.currentTarget.parentElement;
+            let text = targetParent.innerText.trim().toLowerCase();
+
+            let li;
+            for(let val of listSelected) {
+                if(val.innerText.trim().toLowerCase() == text) {
+                    li = val;
+                    li.classList.remove('selected');
+                    li.children[0].classList.add('hidden');
+                }
+            }
+
+            let target = e.currentTarget.parentElement;
+            target.classList.add('hidden');
+
+            const index = tagApplianceAlreadyAdded.indexOf(text);
+            tagApplianceAlreadyAdded.splice(index, 1);
+            // searchList();
+            // return false;
+        });
+        // searchList();
     });
 }
 
 export const addTagFilterUstensils = tags => {
     tags.forEach(tag => {
         const itemTag = createTag(tag);
+        const deleteIconImg = document.createElement('span');
+        deleteIconImg.classList.add('delete');
+        deleteIconImg.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="deleteIcon" width="14" height="14" viewBox="0 0 14 13" fill="none">
+                <path d="M12 11.5L7 6.5M7 6.5L2 1.5M7 6.5L12 1.5M7 6.5L2 11.5" stroke="#1B1B1B" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        `;
+
         itemTag.classList.add('tag__ustensil');
         itemTag.classList.add('hidden');
         tagUstensilWrapper.appendChild(itemTag);
+        itemTag.appendChild(deleteIconImg);
+
+        deleteIconImg.addEventListener('click', (e) => {
+            let listSelected = document.getElementsByClassName('selected');
+            let targetParent = e.currentTarget.parentElement;
+            let text = targetParent.innerText.trim().toLowerCase();
+
+            let li;
+            for(let val of listSelected) {
+                if(val.innerText.trim().toLowerCase() == text) {
+                    li = val;
+                    li.classList.remove('selected');
+                    li.children[0].classList.add('hidden');
+                }
+            }
+
+            let target = e.currentTarget.parentElement;
+            target.classList.add('hidden');
+
+            const index = tagUstensilAlreadyAdded.indexOf(text);
+            tagUstensilAlreadyAdded.splice(index, 1);
+            // searchList();
+            // return false;
+        });
+        // searchList();
     });
 }
 
