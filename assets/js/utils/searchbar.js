@@ -1,30 +1,9 @@
-import { displayfilters } from '../templates/filters.js';
-import { displayData } from './recipes.js';
-import { displayTotalRecipes } from './counters.js';
-// import { addTagFilterIngredients, addTagFilterAppliances, addTagFilterUstensils } from './tags.js';
-import { displayTags } from './tags.js';
+import { setList } from './search.js';
 
 export const searchBar = recipes => {
     const searchInput = document.querySelector("input[name='search']");
     const searchButton = document.getElementById('search');
     const clearButton = document.getElementById('clear');
-    const list = document.getElementById('cooking__section');
-
-    /* Tags Wrappers */
-    const tagIngredientWrapper = document.querySelector('.tag__ingredients--wrapper');
-    const tagApplianceWrapper = document.querySelector('.tag__appliances--wrapper');
-    const tagUstensilWrapper = document.querySelector('.tag__ustensils--wrapper');
-
-    // This function clear recipes list
-    function clearList() {
-        // Clear the list
-        list.innerHTML = '';
-        
-        // Clear Tags
-        tagIngredientWrapper.innerHTML = '';
-        tagApplianceWrapper.innerHTML = '';
-        tagUstensilWrapper.innerHTML = '';
-    }
 
     // This function search and return recipes
     function searchList() {
@@ -60,49 +39,10 @@ export const searchBar = recipes => {
                 return recipeIsMatching; 
 
             }));
-        } else {
+        }else {
             // input is invalid -- show an error message or show no results
             // Return nothing and display all Recipes
-            clearList();
-            // Display all recipes
-            displayData(recipes);
-            // Display total counts recipes
-            displayTotalRecipes(recipes);
-        }
-    }
-    
-    // This function display a message : not found !
-    function noResults() {
-        // create an element for the error; a list item ("li")
-        const error = document.createElement('li');
-        // adding a class name of "error-message" to our error element
-        error.classList.add('error-message');
-
-        // creating text for our element
-        const text = document.createTextNode('No results found. Sorry!');
-        // appending the text to our element
-        error.appendChild(text);
-        // appending the error to our list element
-        list.appendChild(error);
-    }
-
-    // This function display list of recipes
-    // setList takes in a param of "results"
-    function setList(results){
-        // clear the list
-        clearList();
-        // Display recipes
-        displayData(results);
-        // Display total counts recipes
-        displayTotalRecipes(results);
-        // Display Filters
-        displayfilters(results);
-        // Display Tags
-        displayTags();
-
-        // If result is no recipe
-        if (results.length === 0 ){
-            noResults();
+            setList(recipes);
         }
     }
 
@@ -112,16 +52,8 @@ export const searchBar = recipes => {
         clearButton.classList.remove('show');
         clearButton.classList.add('hidden');
         searchInput.value = '';
-        // Clear all
-        clearList();
-        // Display all recipes
-        displayData(recipes);
-        // Display total counts recipes
-        displayTotalRecipes(recipes);
-        // Display Filters
-        displayfilters(recipes);
-        // Display Tags
-        displayTags();
+
+        setList(recipes);
     });
 
     // Clear Input : Clear Button hidden / Show
@@ -139,7 +71,7 @@ export const searchBar = recipes => {
     searchButton.addEventListener("click", searchList);
 
     // Keyup
-    searchInput.addEventListener('keyup', e => {
+    searchInput.addEventListener('keyup', (e) => {
         switch(e.key) {
             case 'Enter':
                 searchList();
@@ -157,3 +89,5 @@ export const searchBar = recipes => {
     //     typingTimer = setTimeout(searchList(), typeInterval);
     // });
 }
+
+// console.log(searchBar);

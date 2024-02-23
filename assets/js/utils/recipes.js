@@ -1,6 +1,6 @@
 import { createRecipe } from '../templates/recipes.js';
 /*** Afficher les cards ***/
-export const displayData = recipes => {
+export const displayRecipes = recipes => {
     const recipeSection = document.getElementById('cooking__section');
     recipeSection.innerHTML = '';
   
