@@ -17,6 +17,7 @@ export const tagUstensilAlreadyAdded = [];
 
 /* Add Tags Filter for Ingredients */ /* Ajout des Tags Ingredients */
 export const addTagFilterIngredients = tags => {
+    tagIngredientWrapper.innerHTML = '';
     tags.forEach(tag => {
         const itemTag = createTag(tag);
         const deleteIconImg = document.createElement('span');
@@ -63,6 +64,7 @@ export const addTagFilterIngredients = tags => {
 
 /* Add Tag Filter for Appliances */ /* Ajout des Tags Appliances */
 export const addTagFilterAppliances = tags => {
+    tagApplianceWrapper.innerHTML = '';
     tags.forEach(tag => {
         const itemTag = createTag(tag);
         const deleteIconImg = document.createElement('span');
@@ -107,6 +109,7 @@ export const addTagFilterAppliances = tags => {
 
 /* Add Tag Filter for Ustensils */ /* Ajout des Tags Ustensils */
 export const addTagFilterUstensils = tags => {
+    tagUstensilWrapper.innerHTML = '';
     tags.forEach(tag => {
         const itemTag = createTag(tag);
         const deleteIconImg = document.createElement('span');

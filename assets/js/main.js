@@ -1,10 +1,6 @@
 import './utils/filters.js';
 import { recipes } from '../datas/recipes.js';
-// import { displayRecipes } from './utils/recipes.js';
 import { setList, searchList } from './utils/search.js';
-// import { displayTotalRecipes } from './utils/counters.js';
-// import { displayfilters } from './templates/filters.js';
-// import { displayTags } from './utils/tags.js';
 
 const searchInput = document.querySelector("input[name='search']");
 const searchButton = document.getElementById('search');
@@ -13,27 +9,15 @@ const clearButton = document.getElementById('clear');
 // let recipes = [];
 
 // async function getData() {
-// //   const response = await fetch ('data/recipes.json');
-// //   recipes = (await response.json()).recipes;
+//     const response = await fetch ('../datas/recipes.json');
+//     recipes = (await response.json()).recipes;
 //     init();
 // }
 
-// function init() {
-//     /* Display recipes */ 
-//     displayRecipes(recipes);
-//     /* Display Counter */
-//     displayTotalRecipes(recipes);
-//     // Search
-//     // searchList(recipes);
-//     /* Display Filters */
-//     displayfilters(recipes);
-//     /* Display tags */
-//     displayTags(recipes);
-//     /* Display filtered recipes with Tags */
-//     // displayRecipesWithTags(recipes);
-// }
-
-// getData();
+function init() {
+    setList(recipes);
+}
+init();
 
 // Clear Button / Clear All
 clearButton.addEventListener("click", () => {
@@ -57,7 +41,9 @@ searchInput.addEventListener("input", () => {
 });
 
 // Search Button event "click"
-searchButton.addEventListener("click", searchList(recipes));
+searchButton.addEventListener("click", () => { 
+    searchList(recipes) 
+});
 
 // Keyup
 searchInput.addEventListener('keyup', (e) => {

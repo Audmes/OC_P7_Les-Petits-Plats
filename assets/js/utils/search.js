@@ -6,27 +6,6 @@ import { displayTags, tagIngredientAlreadyAdded, tagApplianceAlreadyAdded, tagUs
 const searchInput = document.querySelector("input[name='search']");
 const list = document.getElementById('cooking__section');
 
-/* Tags Wrappers */
-const tagIngredientWrapper = document.querySelector('.tag__ingredients--wrapper');
-const tagApplianceWrapper = document.querySelector('.tag__appliances--wrapper');
-const tagUstensilWrapper = document.querySelector('.tag__ustensils--wrapper');
-
-// This function clear all
-export function clearList() {
-    // Clear the Recipes List
-    list.innerHTML = '';
-    
-    // Clear selected Filters
-    tagIngredientAlreadyAdded.splice(0); // tagIngredientAlreadyAdded.length = 0;
-    tagApplianceAlreadyAdded.splice(0);
-    tagUstensilAlreadyAdded.splice(0);
-
-    // Clear Tags 
-    tagIngredientWrapper.innerHTML = '';
-    tagApplianceWrapper.innerHTML = '';
-    tagUstensilWrapper.innerHTML = '';
-}
-
 // This function display a message : not found !
 export function noResults() {
     // create an element for the error; a list item ("li")
@@ -45,8 +24,10 @@ export function noResults() {
 // This function display list of recipes
 // setList takes in a param of "results"
 export function setList(results) {
-    // clear All
-    clearList();
+    tagIngredientAlreadyAdded.splice(0); // tagIngredientAlreadyAdded.length = 0;
+    tagApplianceAlreadyAdded.splice(0);
+    tagUstensilAlreadyAdded.splice(0);
+
     // Display recipes
     displayRecipes(results);
     // Display total counts recipes
@@ -115,7 +96,6 @@ export const searchListWithTags = recipes => {
     || Array.from(document.querySelectorAll('.tag__ustensils--wrapper .tag__ustensil.active')).length > 0) {
         tagsUsed = true;
         // setList(recipes);
-        console.log('un tag est utilisé');
 
         /* Faire des tableaux des items afficher pour chaque filtre */ 
         const taggedIngredientsDOM = Array.from(document.querySelectorAll('.tag__ingredients--wrapper .tag__ingredient.active'));
@@ -208,26 +188,21 @@ export const searchListWithTags = recipes => {
 
             return recipeIsMatching;
         });
-
+        console.log('recipesToDisplay :');
         console.log(recipesToDisplay);
-        console.log(recipes);
-
-        // Récupérer les 3 filtres
-        // const igredientsFiltersDOM = ... 
-
-        // const cookingDOM = Array.from(document.querySelectorAll('article'));
-        // console.log(cookingDOM);
-
-        // Pour chaque recette : comparé recipesToDisplay et add classlist hidden pour le reste.
-
-        // setList(recipesToDisplay);
+        // console.log(recipes);
         
-        // Clear All Recipes
-        list.innerHTML = '';
+        // setList(recipesToDisplay);
         // Display recipes To Display
         displayRecipes(recipesToDisplay);
-        // Display total counts recipes
+        // // Display total counts recipes
         displayTotalRecipes(recipesToDisplay);
+        // // Display Filters
+        // displayfilters(recipesToDisplay);
+        // // Display Tags
+        // displayTags(recipesToDisplay);
+
+        // add selected + active
 
         // If result is no recipe
         if (recipesToDisplay.length === 0 ){
