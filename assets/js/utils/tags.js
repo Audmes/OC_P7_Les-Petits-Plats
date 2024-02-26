@@ -156,6 +156,9 @@ export const addTagFilterUstensils = tags => {
 /* Display Tags */ /* Affichage des Tags */
 export const displayTags = recipes => { 
     // console.log(recipes);
+    tagIngredientAlreadyAdded.splice(0); 
+    tagApplianceAlreadyAdded.splice(0);
+    tagUstensilAlreadyAdded.splice(0);
 
     const filterItemIngredients = [...document.getElementsByClassName('filter__ingredients--items')];
     const filterItemAppliances = [...document.getElementsByClassName('filter__appliances--items')];

@@ -24,9 +24,10 @@ export function noResults() {
 // This function display list of recipes
 // setList takes in a param of "results"
 export function setList(results) {
-    tagIngredientAlreadyAdded.splice(0); // tagIngredientAlreadyAdded.length = 0;
-    tagApplianceAlreadyAdded.splice(0);
-    tagUstensilAlreadyAdded.splice(0);
+    // tagIngredientAlreadyAdded.length = 0;
+    // tagIngredientAlreadyAdded.splice(0); 
+    // tagApplianceAlreadyAdded.splice(0);
+    // tagUstensilAlreadyAdded.splice(0);
 
     // Display recipes
     displayRecipes(results);
@@ -86,7 +87,6 @@ export const searchList = recipes => {
 }
 
 export const searchListWithTags = recipes => {
-    // setList(recipes);
     let tagsUsed = false;
     let recipesToDisplay = [];
 
@@ -94,7 +94,6 @@ export const searchListWithTags = recipes => {
     || Array.from(document.querySelectorAll('.tag__appliances--wrapper .tag__appliance.active')).length > 0
     || Array.from(document.querySelectorAll('.tag__ustensils--wrapper .tag__ustensil.active')).length > 0) {
         tagsUsed = true;
-        // setList(recipes);
 
         /* Faire des tableaux des items afficher pour chaque filtre */ 
         const taggedIngredientsDOM = Array.from(document.querySelectorAll('.tag__ingredients--wrapper .tag__ingredient.active'));
@@ -134,7 +133,8 @@ export const searchListWithTags = recipes => {
             let ustensilsInTheRecipe = [];
 
             ingredientsInTheRecipe = recipe.ingredients.map(({ ingredient }) => ingredient.trim().toLowerCase());
-            appliancesInTheRecipe.push(recipe.appliance);
+            // appliancesInTheRecipe.push(recipe.appliance);
+            appliancesInTheRecipe = recipe.appliance;
             ustensilsInTheRecipe = recipe.ustensils.map((ustensil) => ustensil.trim().toLowerCase());
 
             if(taggedIngredients.length > 0) {
@@ -168,14 +168,14 @@ export const searchListWithTags = recipes => {
                 ingredientIsMatching = true;
             }
             
-            if (appliancesMatching === taggedAppliances.length) {
-                applianceIsMatching = true;
-            }
-            // if (taggedAppliances.length > 0) {
-            //     if (appliancesMatching > 0) {
-            //         applianceIsMatching = true;
-            //     }
-            // } else applianceIsMatching = true;
+            // if (appliancesMatching === taggedAppliances.length) {
+            //     applianceIsMatching = true;
+            // }
+            if (taggedAppliances.length > 0) {
+                if (appliancesMatching > 0) {
+                    applianceIsMatching = true;
+                }
+            } else applianceIsMatching = true;
         
             if (ustensilsMatching === taggedUstensils.length) {
                 ustensilIsMatching = true;
@@ -191,42 +191,17 @@ export const searchListWithTags = recipes => {
         console.log(recipesToDisplay);
         // console.log(recipes);
 
-        // Récupérer les 3 filtres
-        // const igredientsFiltersDOM = ... 
-
-        // const cookingDOM = Array.from(document.querySelectorAll('article'));
-        // console.log(cookingDOM);
-
-        // Pour chaque recette : comparé recipesToDisplay et add classlist hidden pour le reste.
-
-        // setList(recipesToDisplay);
-
-        // const ingredientsSelectedList = [];
-        // const ingredientsSelected = Array.from(document.querySelectorAll('.filter__ingredients--items'));
-        // console.log(ingredientsSelected);
-
-        // Récupérer les filtres déjà sélectionnés
-        // const ingredientsFiltersBloc = Array.from(document.querySelectorAll('.filter__ingredients--items.selected'));
-        // console.log(ingredientsFiltersBloc);
-
-        // const ingredientsTagsBloc = Array.from(document.querySelectorAll('.tag__appliances--wrapper.active'));
-        // console.log(ingredientsTagsBloc);
-
-        // setList(recipesToDisplay);
         // Display recipes To Display
         displayRecipes(recipesToDisplay);
         // // Display total counts recipes
         displayTotalRecipes(recipesToDisplay);
-        // // Display Filters
-        // displayfilters(recipesToDisplay);
-        // // Display Tags
-        // displayTags(recipesToDisplay);
 
-        // Récupérer tous les filtres Ingrédients 
+        // Récupérer tous les filtres du DOM
         const ingredientsFilters = Array.from(document.querySelectorAll('.filter__ingredients--items'));
         const appliancesFilters = Array.from(document.querySelectorAll('.filter__appliances--items'));
         const ustensilsFilters = Array.from(document.querySelectorAll('.filter__ustensils--items'));
-        console.log(ingredientsFilters);
+        console.log('Tous les filtres du DOM :');
+        console.log(appliancesFilters);
 
         // Récupérer les filtres du nouveau Tableau des recettes
         const ingredientsList = [];
@@ -244,8 +219,9 @@ export const searchListWithTags = recipes => {
             });
 
             /** appliances **/
-            if (appliancesList.includes(recipe.appliance) === false) {
-                appliancesList.push(recipe.appliance.trim().toLowerCase());
+            const applianceRegex = recipe.appliance.trim().toLowerCase();
+            if (appliancesList.includes(applianceRegex) === false) {
+                appliancesList.push(applianceRegex);
             }
 
             /** ustensils **/
@@ -257,35 +233,25 @@ export const searchListWithTags = recipes => {
             });
         });
 
-        /* Display Appliances Filters */ /* Affichage des filtres Appliances */
-        const ingredientsToDisplay = ingredientsFilters.filter(item => ingredientsList.includes(item.innerText.trim().toLowerCase()) === false );
-        console.log(ingredientsToDisplay);
-        const appliancesToDisplay = appliancesFilters.filter(item => appliancesList.includes(item.innerText.trim().toLowerCase()) === false );
-        const ustensilsToDisplay = ustensilsFilters.filter(item => ustensilsList.includes(item.innerText.trim().toLowerCase()) === false );
+        /* Display New Recipes Filters */ /* Affichage des Nouveaux filtres */
+        const ingredientsToDisplay = ingredientsFilters.filter(item => ingredientsList.includes(item.innerText.trim().toLowerCase()));
+        const ingredientsNotDisplay = ingredientsFilters.filter(item => ingredientsList.includes(item.innerText.trim().toLowerCase()) === false );
+        const appliancesToDisplay = appliancesFilters.filter(item => appliancesList.includes(item.innerText.trim().toLowerCase()));
+        const appliancesNotDisplay = appliancesFilters.filter(item => appliancesList.includes(item.innerText.trim().toLowerCase()) === false );
+        const ustensilsToDisplay = ustensilsFilters.filter(item => ustensilsList.includes(item.innerText.trim().toLowerCase()));
+        const ustensilsNotDisplay = ustensilsFilters.filter(item => ustensilsList.includes(item.innerText.trim().toLowerCase()) === false );
 
-        if(ingredientsFilters.filter(item => ingredientsList.includes(item.innerText.trim().toLowerCase()) === false )) {
-            ingredientsToDisplay.forEach(item => item.classList.add('hidden'));
-        }else {
-            ingredientsToDisplay.forEach(item => item.classList.remove('hidden'));
-        }
+        console.log('Les filtres à ne pas afficher :');
+        console.log(appliancesToDisplay);
 
-        if(appliancesFilters.filter(item => appliancesList.includes(item.innerText.trim().toLowerCase()) === false )) {
-            appliancesToDisplay.forEach(item => item.classList.add('hidden'));
-        }else {
-            appliancesToDisplay.forEach(item => item.classList.remove('hidden'));
-        }
+        ingredientsToDisplay.forEach((app) => app.classList.remove('hidden'));
+        ingredientsNotDisplay.forEach((app) => app.classList.add('hidden'));
 
-        if(ustensilsFilters.filter(item => ustensilsList.includes(item.innerText.trim().toLowerCase()) === false )) {
-            ustensilsToDisplay.forEach(item => item.classList.add('hidden'));
-        }else {
-            ustensilsToDisplay.forEach(item => item.classList.remove('hidden'));
-        }
+        appliancesToDisplay.forEach((app) => app.classList.remove('hidden'));
+        appliancesNotDisplay.forEach((app) => app.classList.add('hidden'));
 
-        // intersection.forEach(item => item.classList.add('hidden'));
-
-        // ["a", "b"]
-
-
+        ustensilsToDisplay.forEach((app) => app.classList.remove('hidden'));
+        ustensilsNotDisplay.forEach((app) => app.classList.add('hidden'));
 
         // If result is no recipe
         if (recipesToDisplay.length === 0 ){
