@@ -5,8 +5,7 @@ export const displayRecipes = recipes => {
     recipeSection.innerHTML = '';
   
     for (const recipe of recipes) {
-      /* getRecipeCard is defined in recipes_cards.js */
-      // eslint-disable-next-line no-undef
+      /* createRecipe is defined in recipes.js */
       const recipeCard = createRecipe(recipe);
       recipeSection.appendChild(recipeCard);
     }

@@ -62,7 +62,7 @@ export const searchList = recipes => {
 
             if (regex.test(recipeName)) {
                 recipeIsMatching = true;
-            } else if (regex.test(recipe.description)) {
+            } else if (regex.test(recipe.description.trim().toLowerCase())) {
                 recipeIsMatching = true;
             }
 
@@ -80,7 +80,6 @@ export const searchList = recipes => {
         }));
     
     }else {
-        // input is invalid -- show an error message or show no results
         // Return nothing and display all Recipes
         setList(recipes);
     }
@@ -191,7 +190,28 @@ export const searchListWithTags = recipes => {
         console.log('recipesToDisplay :');
         console.log(recipesToDisplay);
         // console.log(recipes);
-        
+
+        // Récupérer les 3 filtres
+        // const igredientsFiltersDOM = ... 
+
+        // const cookingDOM = Array.from(document.querySelectorAll('article'));
+        // console.log(cookingDOM);
+
+        // Pour chaque recette : comparé recipesToDisplay et add classlist hidden pour le reste.
+
+        // setList(recipesToDisplay);
+
+        // const ingredientsSelectedList = [];
+        // const ingredientsSelected = Array.from(document.querySelectorAll('.filter__ingredients--items'));
+        // console.log(ingredientsSelected);
+
+        // Récupérer les filtres déjà sélectionnés
+        // const ingredientsFiltersBloc = Array.from(document.querySelectorAll('.filter__ingredients--items.selected'));
+        // console.log(ingredientsFiltersBloc);
+
+        // const ingredientsTagsBloc = Array.from(document.querySelectorAll('.tag__appliances--wrapper.active'));
+        // console.log(ingredientsTagsBloc);
+
         // setList(recipesToDisplay);
         // Display recipes To Display
         displayRecipes(recipesToDisplay);
@@ -202,7 +222,70 @@ export const searchListWithTags = recipes => {
         // // Display Tags
         // displayTags(recipesToDisplay);
 
-        // add selected + active
+        // Récupérer tous les filtres Ingrédients 
+        const ingredientsFilters = Array.from(document.querySelectorAll('.filter__ingredients--items'));
+        const appliancesFilters = Array.from(document.querySelectorAll('.filter__appliances--items'));
+        const ustensilsFilters = Array.from(document.querySelectorAll('.filter__ustensils--items'));
+        console.log(ingredientsFilters);
+
+        // Récupérer les filtres du nouveau Tableau des recettes
+        const ingredientsList = [];
+        const appliancesList = [];
+        const ustensilsList = [];
+
+        // On récupère tous les ingredients, appliances et ustensils des recettes à afficher
+        recipesToDisplay.forEach((recipe) => {
+            /** Ingredients **/
+            recipe.ingredients.forEach(({ ingredient }) => { 
+                const ingredientRegex = ingredient.trim().toLowerCase();
+                if (ingredientsList.includes(ingredientRegex) === false) {
+                    ingredientsList.push(ingredientRegex);
+                }
+            });
+
+            /** appliances **/
+            if (appliancesList.includes(recipe.appliance) === false) {
+                appliancesList.push(recipe.appliance.trim().toLowerCase());
+            }
+
+            /** ustensils **/
+            recipe.ustensils.forEach((ustensil) => {
+                const ustensilRegex = ustensil.trim().toLowerCase();
+                if (ustensilsList.includes(ustensilRegex) === false) {
+                    ustensilsList.push(ustensilRegex);
+                }
+            });
+        });
+
+        /* Display Appliances Filters */ /* Affichage des filtres Appliances */
+        const ingredientsToDisplay = ingredientsFilters.filter(item => ingredientsList.includes(item.innerText.trim().toLowerCase()) === false );
+        console.log(ingredientsToDisplay);
+        const appliancesToDisplay = appliancesFilters.filter(item => appliancesList.includes(item.innerText.trim().toLowerCase()) === false );
+        const ustensilsToDisplay = ustensilsFilters.filter(item => ustensilsList.includes(item.innerText.trim().toLowerCase()) === false );
+
+        if(ingredientsFilters.filter(item => ingredientsList.includes(item.innerText.trim().toLowerCase()) === false )) {
+            ingredientsToDisplay.forEach(item => item.classList.add('hidden'));
+        }else {
+            ingredientsToDisplay.forEach(item => item.classList.remove('hidden'));
+        }
+
+        if(appliancesFilters.filter(item => appliancesList.includes(item.innerText.trim().toLowerCase()) === false )) {
+            appliancesToDisplay.forEach(item => item.classList.add('hidden'));
+        }else {
+            appliancesToDisplay.forEach(item => item.classList.remove('hidden'));
+        }
+
+        if(ustensilsFilters.filter(item => ustensilsList.includes(item.innerText.trim().toLowerCase()) === false )) {
+            ustensilsToDisplay.forEach(item => item.classList.add('hidden'));
+        }else {
+            ustensilsToDisplay.forEach(item => item.classList.remove('hidden'));
+        }
+
+        // intersection.forEach(item => item.classList.add('hidden'));
+
+        // ["a", "b"]
+
+
 
         // If result is no recipe
         if (recipesToDisplay.length === 0 ){
@@ -210,7 +293,6 @@ export const searchListWithTags = recipes => {
         }
 
     }else {
-        // input is invalid -- show an error message or show no results
         // Return nothing and display all Recipes
         setList(recipes);
     }

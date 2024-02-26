@@ -56,6 +56,7 @@ export const addTagFilterIngredients = tags => {
             const index = tagIngredientAlreadyAdded.indexOf(text);
             tagIngredientAlreadyAdded.splice(index, 1);
 
+            /* Variable défini dans search.js */
             searchListWithTags(recipes);
             // return false;
         });
