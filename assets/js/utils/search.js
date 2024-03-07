@@ -114,7 +114,6 @@ export const searchListWithTags = recipes => {
         // console.log(taggedIngredients);
         // console.log(taggedAppliances);
         // console.log(taggedUstensils);
-
         
         /* Définir le tableau recipesToDisplay un filtre de recipes */
         recipesToDisplay = recipes.filter((recipe) => {
@@ -189,7 +188,6 @@ export const searchListWithTags = recipes => {
         });
         console.log('recipesToDisplay :');
         console.log(recipesToDisplay);
-        // console.log(recipes);
 
         // Display recipes To Display
         displayRecipes(recipesToDisplay);
@@ -240,9 +238,6 @@ export const searchListWithTags = recipes => {
         const appliancesNotDisplay = appliancesFilters.filter(item => appliancesList.includes(item.innerText.trim().toLowerCase()) === false );
         const ustensilsToDisplay = ustensilsFilters.filter(item => ustensilsList.includes(item.innerText.trim().toLowerCase()));
         const ustensilsNotDisplay = ustensilsFilters.filter(item => ustensilsList.includes(item.innerText.trim().toLowerCase()) === false );
-
-        console.log('Les filtres à ne pas afficher :');
-        console.log(appliancesToDisplay);
 
         ingredientsToDisplay.forEach((app) => app.classList.remove('hidden'));
         ingredientsNotDisplay.forEach((app) => app.classList.add('hidden'));

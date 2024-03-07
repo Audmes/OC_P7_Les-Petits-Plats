@@ -61,5 +61,5 @@ searchInput.addEventListener('keyup', (e) => {
 
 // searchInput.addEventListener('keyup', () => {
 //     clearTimeout(typingTimer);
-//     typingTimer = setTimeout(searchList(), typeInterval);
+//     typingTimer = setTimeout(searchList(recipes), typeInterval);
 // });
