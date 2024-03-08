@@ -6,9 +6,14 @@ export const createRecipe = recipe => {
     article.classList.add('recipe');
 
     article.innerHTML = `
+        <div class="recipe__cooktime">
+            <p class="time">`+recipe.time+`mn</p>
+        </div>
+
         <div class="recipe__image">
             <img src="./assets/images/recettes/`+recipe.image+`" alt="`+recipe.name+`">
         </div>
+        
         <div class="recipe__content">
             <div class="recipe__title">
                 <h2>`+recipe.name+`</h2>

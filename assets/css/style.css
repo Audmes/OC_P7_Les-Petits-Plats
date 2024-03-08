@@ -202,6 +202,15 @@ button.clearBtn__drop {
     line-height: normal;
 }
 
+.time {
+    font-family: Manrope;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
 /* Helpers */
 .container {
     margin-left: auto;
@@ -541,6 +550,21 @@ button.clearBtn__drop {
     border-radius: 21px;
     background: #FFF;
     box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
+}
+
+.recipe__cooktime {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 21px;
+    margin-left: 295px;
+    width: 63px;
+    height: 26px;
+    border-radius: 14px;
+    padding: 5px, 15px;
+    gap: 10px;
+    background-color: var(--color-primary);
 }
 
 .recipe__image {

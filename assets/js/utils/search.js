@@ -28,6 +28,14 @@ export function setList(results) {
     // tagIngredientAlreadyAdded.splice(0); 
     // tagApplianceAlreadyAdded.splice(0);
     // tagUstensilAlreadyAdded.splice(0);
+    
+    const ingredientsInput = document.getElementById('ingredients-input');
+    const appliancesInput = document.getElementById('appliances-input');
+    const ustensilsInput = document.getElementById('ustensils-input');
+    
+    ingredientsInput.value = '';
+    appliancesInput.value = '';
+    ustensilsInput.value = '';
 
     // Display recipes
     displayRecipes(results);
@@ -53,6 +61,7 @@ export const searchList = recipes => {
     if (value && value.trim().length > 2) {
         // Redefine 'value' to exclude white space and change input to all lowercase
         // value = value.trim().toLowerCase();
+
         const regex = new RegExp(`${value.trim().toLowerCase()}`);
         
         // Return the results only if the value of the search is included in the recipes name, description and ingredient list
