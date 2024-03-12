@@ -8,15 +8,20 @@ const list = document.getElementById('cooking__section');
 
 // This function display a message : not found !
 export function noResults() {
+    // Get Input value
+    const searchInputValue = searchInput.value;
     // create an element for the error; a list item ("li")
-    const error = document.createElement('li');
+    const error = document.createElement('p');
     // adding a class name of "error-message" to our error element
     error.classList.add('error-message');
 
     // creating text for our element
-    const text = document.createTextNode('No results found. Sorry!');
+    // const text = document.createTextNode('No results found. Sorry!');
+    error.innerHTML = `
+        Aucune recette ne contient <strong>`+searchInputValue+`</strong>, vous pouvez chercher « tarte aux pommes », « poisson », etc.
+    `;
     // appending the text to our element
-    error.appendChild(text);
+    // error.appendChild(text);
     // appending the error to our list element
     list.appendChild(error);
 }
