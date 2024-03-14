@@ -18,4 +18,4 @@ export const displayTotalRecipes = recipes => {
     }
 
     return totalSection.appendChild(h2);
-}
+};

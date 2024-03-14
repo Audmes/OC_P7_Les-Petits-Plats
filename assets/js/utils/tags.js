@@ -61,7 +61,7 @@ export const addTagFilterIngredients = tags => {
             // return false;
         });
     });
-}
+};
 
 /* Add Tag Filter for Appliances */ /* Ajout des Tags Appliances */
 export const addTagFilterAppliances = tags => {
@@ -106,7 +106,7 @@ export const addTagFilterAppliances = tags => {
             // return false;
         });
     });
-}
+};
 
 /* Add Tag Filter for Ustensils */ /* Ajout des Tags Ustensils */
 export const addTagFilterUstensils = tags => {
@@ -151,7 +151,7 @@ export const addTagFilterUstensils = tags => {
             // return false;
         });
     });
-}
+};
 
 /* Display Tags */ /* Affichage des Tags */
 export const displayTags = recipes => { 
@@ -300,4 +300,4 @@ export const displayTags = recipes => {
             }
         });
     });
-}
+};

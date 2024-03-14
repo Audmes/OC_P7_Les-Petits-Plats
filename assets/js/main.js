@@ -42,7 +42,7 @@ searchInput.addEventListener("input", () => {
 
 // Search Button event "click"
 searchButton.addEventListener("click", () => { 
-    searchList(recipes) 
+    searchList(recipes); 
 });
 
 // Keyup

@@ -1,6 +1,6 @@
 # Les Petits Plats
 
-Les Petits Plats est un site de recettes de cuisine .
+Les Petits Plats est un site de recettes de cuisine.
 
 ![Image](assets/images/logo.png)
 

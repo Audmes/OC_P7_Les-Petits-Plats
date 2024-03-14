@@ -1,7 +1,7 @@
 import { displayfilters } from '../templates/filters.js';
 import { displayRecipes } from './recipes.js';
 import { displayTotalRecipes } from './counters.js';
-import { displayTags, tagIngredientAlreadyAdded, tagApplianceAlreadyAdded, tagUstensilAlreadyAdded } from './tags.js';
+import { displayTags } from './tags.js';
 
 const searchInput = document.querySelector("input[name='search']");
 const list = document.getElementById('cooking__section');
@@ -98,7 +98,7 @@ export const searchList = recipes => {
         // Return nothing and display all Recipes
         setList(recipes);
     }
-}
+};
 
 export const searchListWithTags = recipes => {
     let tagsUsed = false;
@@ -271,4 +271,4 @@ export const searchListWithTags = recipes => {
         // Return nothing and display all Recipes
         setList(recipes);
     }
-}
+};

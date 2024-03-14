@@ -10,4 +10,4 @@ export const createTag = tag => {
     `;
     
     return itemTag;
-}
+};

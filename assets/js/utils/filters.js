@@ -1,10 +1,9 @@
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-const filtersBtn = document.querySelectorAll('.dropbtn'); 
+// const filtersBtn = document.querySelectorAll('.dropbtn'); 
 const dropInput = document.querySelectorAll(".dropInput");
-
 const clearDropButton = document.querySelectorAll('.clearBtn__drop');
-const filterList = document.querySelectorAll('.drop__wrapper');
+// const filterList = document.querySelectorAll('.drop__wrapper');
 
 function filterFunction(btn) {
   
@@ -69,7 +68,7 @@ dropdownArray.forEach(function(el){
       event.preventDefault();
     }
   };
-})
+});
 
 Element.prototype.hasClass = function(className) {
     return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);

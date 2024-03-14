@@ -53,4 +53,4 @@ export const createRecipe = recipe => {
     `;
 
     return article;
-}
+};

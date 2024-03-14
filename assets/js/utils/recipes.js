@@ -9,4 +9,4 @@ export const displayRecipes = recipes => {
       const recipeCard = createRecipe(recipe);
       recipeSection.appendChild(recipeCard);
     }
-}
+};
