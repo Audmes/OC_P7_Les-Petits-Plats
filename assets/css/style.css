@@ -562,7 +562,7 @@ button.clearBtn__drop {
     width: 63px;
     height: 26px;
     border-radius: 14px;
-    padding: 5px, 15px;
+    padding: 5px 15px;
     gap: 10px;
     background-color: var(--color-primary);
 }
