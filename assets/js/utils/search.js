@@ -59,48 +59,46 @@ export function setList(results) {
 
 // This function search and return recipes
 export const searchList = recipes => {
-    const start = Date.now();
     const value = searchInput.value;
+    let recipesToDisplay = [];
 
     // Check: if input exists and if input is larger than 2
     if (value && value.trim().length > 2) {
         // Redefine 'value' to exclude white space and change input to all lowercase
-        // value = value.trim().toLowerCase();
-
         const regex = new RegExp(`${value.trim().toLowerCase()}`);
-        
-        // Return the results only if the value of the search is included in the recipes name, description and ingredient list
-        setList(recipes.filter(recipe => {
+
+        for (let i = 0; i < recipes.length; i += 1) {
             let recipeIsMatching = false;
 
-            const recipeName = recipe.name.trim().toLowerCase();
-
-            if (regex.test(recipeName)) {
+            if (regex.test(recipes[i].name.trim().toLowerCase())) {
                 recipeIsMatching = true;
-            } else if (regex.test(recipe.description.trim().toLowerCase())) {
+
+            } else if (regex.test(recipes[i].description.trim().toLowerCase())) {
                 recipeIsMatching = true;
             }
 
-            // For Recipe Ingredients : listing all ingredients : "ingredient"
-            recipe.ingredients.forEach(({ ingredient }) => {
-                const recipeIngredient = ingredient.trim().toLowerCase();
+            for (let j = 0; j < recipes[i].ingredients.length; j += 1) {
+                // const recipeIngredient = ingredient.trim().toLowerCase();
+                const recipeIngredient = recipes[i].ingredients[j].ingredient.toLowerCase();
 
+                // if (regex.test(recipes[i].ingredients[j].ingredient)) {
                 if (regex.test(recipeIngredient)) {
-                  recipeIsMatching = true;
+                    recipeIsMatching = true;
                 }
-            });
+            }
 
-            return recipeIsMatching; 
-
-        }));
-
-        console.log(`Time elapsed: ${Date.now() - start} ms`);
-    
+            if (recipeIsMatching === true) {
+             recipesToDisplay.push(recipes[i]);
+            }
+        }
+        
+        setList(recipesToDisplay);
+        
     }else {
         // Return nothing and display all Recipes
         setList(recipes);
     }
-};
+}
 
 export const searchListWithTags = recipes => {
     let tagsUsed = false;
