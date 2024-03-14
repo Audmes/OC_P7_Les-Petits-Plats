@@ -59,7 +59,7 @@ export function setList(results) {
 
 // This function search and return recipes
 export const searchList = recipes => {
-    
+    const start = Date.now();
     const value = searchInput.value;
 
     // Check: if input exists and if input is larger than 2
@@ -93,6 +93,8 @@ export const searchList = recipes => {
             return recipeIsMatching; 
 
         }));
+
+        console.log(`Time elapsed: ${Date.now() - start} ms`);
     
     }else {
         // Return nothing and display all Recipes
