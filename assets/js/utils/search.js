@@ -59,6 +59,7 @@ export function setList(results) {
 
 // This function search and return recipes
 export const searchList = recipes => {
+    const start = Date.now();
     const value = searchInput.value;
     let recipesToDisplay = [];
 
@@ -93,6 +94,8 @@ export const searchList = recipes => {
         }
         
         setList(recipesToDisplay);
+
+        console.log(`Time elapsed: ${Date.now() - start} ms`);
         
     }else {
         // Return nothing and display all Recipes
