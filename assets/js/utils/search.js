@@ -203,8 +203,8 @@ export const searchListWithTags = recipes => {
 
             return recipeIsMatching;
         });
-        console.log('recipesToDisplay :');
-        console.log(recipesToDisplay);
+        // console.log('recipesToDisplay :');
+        // console.log(recipesToDisplay);
 
         // Display recipes To Display
         displayRecipes(recipesToDisplay);
@@ -215,8 +215,8 @@ export const searchListWithTags = recipes => {
         const ingredientsFilters = Array.from(document.querySelectorAll('.filter__ingredients--items'));
         const appliancesFilters = Array.from(document.querySelectorAll('.filter__appliances--items'));
         const ustensilsFilters = Array.from(document.querySelectorAll('.filter__ustensils--items'));
-        console.log('Tous les filtres du DOM :');
-        console.log(appliancesFilters);
+        // console.log('Tous les filtres du DOM :');
+        // console.log(appliancesFilters);
 
         // Récupérer les filtres du nouveau Tableau des recettes
         const ingredientsList = [];
