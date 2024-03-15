@@ -103,13 +103,13 @@ export const searchList = recipes => {
 };
 
 export const searchListWithTags = recipes => {
-    let tagsUsed = false;
+    // let tagsUsed = false;
     let recipesToDisplay = [];
 
     if(Array.from(document.querySelectorAll('.tag__ingredients--wrapper .tag__ingredient.active')).length > 0
     || Array.from(document.querySelectorAll('.tag__appliances--wrapper .tag__appliance.active')).length > 0
     || Array.from(document.querySelectorAll('.tag__ustensils--wrapper .tag__ustensil.active')).length > 0) {
-        tagsUsed = true;
+        // tagsUsed = true;
 
         /* Faire des tableaux des items afficher pour chaque filtre */ 
         const taggedIngredientsDOM = Array.from(document.querySelectorAll('.tag__ingredients--wrapper .tag__ingredient.active'));
