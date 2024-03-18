@@ -11,7 +11,7 @@ export const createRecipe = recipe => {
         </div>
 
         <div class="recipe__image">
-            <img src="./assets/images/recettes/`+recipe.image+`" alt="`+recipe.name+`">
+            <img src="./assets/images/recettes/thumbs/`+recipe.image+`" alt="`+recipe.name+`">
         </div>
         
         <div class="recipe__content">
