@@ -136,6 +136,10 @@ h3 {
     stroke: #000;
 }
 
+.searchInput__message {
+    color: red;
+}
+
 /* Clear Button */
 button.clearBtn {
     position: absolute;

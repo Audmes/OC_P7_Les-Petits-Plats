@@ -40,16 +40,30 @@ searchInput.addEventListener("input", () => {
     }
 });
 
+function validate(input) {
+    const regex = /^[^@&"()<>!_$*€£`+=\/;?#]+$/;
+    const value = input.value.trim();
+    const errorMessage = document.getElementById("searchInput__message");
+
+    if (!regex.test(value)) {
+        errorMessage.innerHTML = input.validationMessage;
+        // input.setCustomValidity("Vous ne pouvez pas utiliser de caractères spéciaux");
+    } else {
+        errorMessage.innerHTML = '';
+        searchList(recipes);
+    } 
+}
+
 // Search Button event "click"
 searchButton.addEventListener("click", () => { 
-    searchList(recipes); 
+    validate(searchInput); 
 });
 
 // Keyup
 searchInput.addEventListener('keyup', (e) => {
     switch(e.key) {
         case 'Enter':
-            searchList(recipes);
+            validate(searchInput);
             break;
     }
 });
