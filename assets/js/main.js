@@ -3,6 +3,7 @@ import { recipes } from '../datas/recipes.js';
 import { setList, searchList } from './utils/search.js';
 
 const searchInput = document.querySelector("input[name='search']");
+const errorMessage = document.getElementById("searchInput__message");
 const searchButton = document.getElementById('search');
 const clearButton = document.getElementById('clear');
 
@@ -25,6 +26,7 @@ clearButton.addEventListener("click", () => {
     clearButton.classList.remove('show');
     clearButton.classList.add('hidden');
     searchInput.value = '';
+    errorMessage.innerHTML = '';
 
     setList(recipes);
 });
@@ -43,7 +45,6 @@ searchInput.addEventListener("input", () => {
 function validate(input) {
     const regex = /^[^@&"()<>!_$*€£`+=\/;?#]+$/;
     const value = input.value.trim();
-    const errorMessage = document.getElementById("searchInput__message");
 
     if (!regex.test(value)) {
         errorMessage.innerHTML = input.validationMessage;

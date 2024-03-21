@@ -33,7 +33,7 @@
 
             <div class="header__search__wrapper">
                 <div class="header__search">
-                    <input type="text" placeholder="Rechercher une recette, un ingrédient, ..." title="Search text" name="search" aria-label="Search text">
+                    <input required id="searchInput" minlength="1" maxlength="250" pattern="[a-zA-Z]" type="text" placeholder="Rechercher une recette, un ingrédient, ..." title="Search text" name="search" aria-label="Search text">
                     <button id="search" type="button" class="search" aria-label="Search">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
                             <circle cx="10" cy="10" r="9.5" stroke="white"/>
@@ -46,6 +46,7 @@
                         </svg>
                     </button>
                 </div>
+                <p id="searchInput__message" class="searchInput__message"></p>
             </div>
         </div>
     </header>
