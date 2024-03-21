@@ -87,9 +87,9 @@ export const displayfilters = recipes => {
     });
 
     /* Variable défini dans tags.js */
-    addTagFilterIngredients(ingredientsList);
+    addTagFilterIngredients(ingredientsList, recipes);
 
-    addTagFilterAppliances(appliancesList);
+    addTagFilterAppliances(appliancesList, recipes);
 
-    addTagFilterUstensils(ustensilsList);
+    addTagFilterUstensils(ustensilsList, recipes);
 };
