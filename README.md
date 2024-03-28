@@ -7,14 +7,19 @@ Maquettes : https://www.figma.com/file/LY5VQTAqnrAf0bWObOBrt8/Les-petits-plats--
 
 ------------
 ### Description du projet
-Les Petits Plats est un site de recettes de cuisine.
-Ce projet consiste à débugger et tester un SaaS RH.
+Ce projet consiste à développer un algorithme de recherche efficace pour une plateforme de recettes de cuisine.
 
 ### Cahiers des charges
 ##### Spécifications techniques
-1. Fixer les bugs.
-2. Ajouter des tests unitaires et d'intégration.
-3. Rédiger un plan de test End-to-End.
+1. Utiliser des outils et méthodes avancées de JavaScript.
+2. Concevoir l'interface utilisateur du site.
+3. Développer deux versions d'un algorithme de recherche, capables de parcourir et de filtrer efficacement un fichier JSON.
+4. Implémenter ces algorithmes.
+5. Analyser et comparer leurs performances.
+6. Utiliser des outils comme Jsben.ch ou d'autres outils de test de performances.
+7. Identifier l'algorithme le plus efficace.
+8. Documenter votre travail et expliquer pourquoi cet algorithme est le plus adapté pour le site.
+9. Prendre en compte les principes du Green Code. 
 
 ### Compétences acquises
 - Analyser un problème informatique
@@ -42,3 +47,10 @@ Ce projet consiste à débugger et tester un SaaS RH.
 - Chaque point du brief. a été présenté
 - Tous les choix ont été justifié
 - Bonne compréhension globale de la mise en place d'algo et comparaison de ceux-ci
+
+#### Conclusion
+
+Algorithme 2 : Boucle native (for)
+La boucle "For" est la méthode la plus rapide pour parcourir un tableau.
+
+![Image](assets/images/results.png)
