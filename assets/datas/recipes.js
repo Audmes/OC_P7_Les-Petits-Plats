@@ -1778,5 +1778,129 @@ export const recipes = [
         description:"Préparer la frangipane : Mélanger le sucre la poudre d'amandes, le beurre et les oeufs. Étaler la moitié de la pate feuilleté et mettre dans un moule à tarte. Garnir de frangipane et recouvrir du reste de pate feuilletée. Mettre au four 30 minutes",
         appliance: "Four",
         ustensils:["rouleau à patisserie","fouet"]
+    },
+    {
+        id: 51,
+        image: "Recette51.webp",
+        name: "Bibimbap",
+        servings: 2,
+        ingredients: [
+            {
+                "ingredient": "Riz",
+                "quantity": 200,
+                "unit":"grammes"
+            },
+            {
+                "ingredient": "Oeuf",
+                "quantity": 2
+            },
+            {
+                "ingredient": "Boeuf",
+                "quantity": 100,
+                "unit":"grammes"
+            },
+            {
+                "ingredient": "Pousse de soja",
+                "quantity": 100,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Epinard",
+                "quantity": 150,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Concombre",
+                "quantity": 1/2
+            },
+            {
+                "ingredient": "Carotte",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Oignon",
+                "quantity": 1
+            },
+        ],
+        time: 55,
+        description:"Préparation des légumes: Couper en fines lamelles les concombres, après avoir enlever les graines, couper en petits bâtonnets très fins les carottes et émincer les oignons. Rincer les épinards frais ou sortir du congélateur. Rincer les pousses de soja. Hacher les gousses d'ail. Cuisson du riz: Faire cuire le riz selon les indications du paquet. Cuisson des légumes: Faire revenir les légumes (carotte, concombre, soja et épinard) séparément dans des poêles bien chaudes avec un peu d'huile. Ajouter à chacun un peu d'ail et d'oignon. Verser un peu d'huile de sésame (3-4 gouttes) et une pincée de sucre. Cuisson de la viande et des oeufs: Faire revenir la viande hachée dans l'huile. Faire également cuire les oeufs au plat. Préparation de la sauce: Préparer la sauce en mettant tous les ingrédients dans un bol et mélanger. Une fois que le riz est cuit, placer le riz dans des bols. Verser la sauce au centre (2 cuillères à soupe). Dressage du bibimbap: Placer au centre et au dessus de la sauce l’œuf au plat. Puis tout au tour disposer les légumes sans les mélanger. Saupoudrer de graines de sésame.",
+        appliance: "Casserole",
+        ustensils:["couteau","cuillère en bois","Poêle à frire"]
+    },
+    {
+        id: 52,
+        image: "Recette52.webp",
+        name: "Bibimbap : Marinade pour la viande",
+        servings: 2,
+        ingredients: [
+            {
+                "ingredient": "Miel",
+                "quantity": 1,
+                "unit": "cuillères à soupe"
+            },
+            {
+                "ingredient": "Huile de sésame",
+                "quantity": 1,
+                "unit": "cuillères à soupe"
+            },
+            {
+                "ingredient": "Vinaigre de riz",
+                "quantity": 1,
+                "unit": "cuillères à soupe"
+            },
+            {
+                "ingredient": "Ail",
+                "quantity": "2 gousses",
+            },
+            {
+                "ingredient": "Poivre"
+            },
+            {
+                "ingredient": "Sauce Kikkoman",
+                "quantity": 2,
+                "unit": "cuillères à soupe"
+            }
+        ],
+        time: 5,
+        description:"Marinade de la viande: Mélanger le boeuf et le porc haché avec les ingrédients de la marinade et réserver au frais.",
+        appliance: "Casserole",
+        ustensils:["couteau","cuillère en bois","Poêle à frire"]
+    },
+    {
+        id: 53,
+        image: "Recette53.webp",
+        name: "Bibimbap : Sauce",
+        servings: 2,
+        ingredients: [
+            {
+                "ingredient": "Miel",
+                "quantity": 1,
+                "unit": "cuillères à soupe"
+            },
+            {
+                "ingredient": "Pâte de piment rouge",
+                "quantity": 3,
+                "unit": "cuillères à soupe"
+            },
+            {
+                "ingredient": "Huile de sésame",
+                "quantity": 1,
+                "unit": "cuillères à soupe"
+            },
+            {
+                "ingredient": "Graines de sésame",
+                "quantity": 1,
+                "unit": "cuillères à café"
+            },
+            {
+                "ingredient": "Eau",
+                "quantity": 2,
+                "unit": "cuillères à soupe"
+            }
+        ],
+        time: 5,
+        description:"Préparer la sauce en mettant tous les ingrédients dans un bol et mélanger. Une fois que le riz est cuit, placer le riz dans des bols. Verser la sauce au centre (2 cuillères à soupe).",
+        appliance: "Casserole",
+        ustensils:["cuillère en bois"]
     }
 ];
