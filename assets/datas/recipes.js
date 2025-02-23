@@ -528,7 +528,7 @@ export const recipes = [
         id: 15,
         image: "Recette15.webp",
         name: "Crêpes Chocolat Banane",
-        servings: 10,
+        servings: 15,
         ingredients: [
             {
                 "ingredient": "Oeuf",
@@ -559,10 +559,10 @@ export const recipes = [
                 "quantity": 4
             }
         ],
-        time: 60,
+        time: 10,
         description:"Mélangez dans un saladier, la farine, les oeufs, et le lait. Battez jusqu'à avoir une masse homogène. Pendant ce temps faites fondre le beurre et ajoutez en une partie à la pâte à crêpes. Faire fondre le chocolat ( avec le reste du beurre salé ). Lorsque vous chauffez les crêpes. Ajouter le chocolat fondu et les bananes coupées en rondelles. Ajoutez une touche de chantilly pour les gourmands",
-        appliance: "Poêle à crêpe",
-        ustensils:["saladier", "louche", "cuillère en bois"]
+        appliance: "Plaque de cuisson",
+        ustensils:["saladier", "louche", "cuillère en bois","Poêle"]
     },
     {
         id: 16,
