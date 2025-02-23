@@ -1824,8 +1824,8 @@ export const recipes = [
         ],
         time: 55,
         description:"Préparation des légumes: Couper en fines lamelles les concombres, après avoir enlever les graines, couper en petits bâtonnets très fins les carottes et émincer les oignons. Rincer les épinards frais ou sortir du congélateur. Rincer les pousses de soja. Hacher les gousses d'ail. Cuisson du riz: Faire cuire le riz selon les indications du paquet. Cuisson des légumes: Faire revenir les légumes (carotte, concombre, soja et épinard) séparément dans des poêles bien chaudes avec un peu d'huile. Ajouter à chacun un peu d'ail et d'oignon. Verser un peu d'huile de sésame (3-4 gouttes) et une pincée de sucre. Cuisson de la viande et des oeufs: Faire revenir la viande hachée dans l'huile. Faire également cuire les oeufs au plat. Préparation de la sauce: Préparer la sauce en mettant tous les ingrédients dans un bol et mélanger. Une fois que le riz est cuit, placer le riz dans des bols. Verser la sauce au centre (2 cuillères à soupe). Dressage du bibimbap: Placer au centre et au dessus de la sauce l’œuf au plat. Puis tout au tour disposer les légumes sans les mélanger. Saupoudrer de graines de sésame.",
-        appliance: "Casserole",
-        ustensils:["couteau","cuillère en bois","Poêle à frire"]
+        appliance: "Plaque de cuisson",
+        ustensils:["couteau","cuillère en bois","Poêle"]
     },
     {
         id: 52,
@@ -1863,8 +1863,7 @@ export const recipes = [
         ],
         time: 5,
         description:"Marinade de la viande: Mélanger le boeuf et le porc haché avec les ingrédients de la marinade et réserver au frais.",
-        appliance: "Casserole",
-        ustensils:["couteau","cuillère en bois","Poêle à frire"]
+        ustensils:["couteau","cuillère en bois"]
     },
     {
         id: 53,
@@ -1900,7 +1899,53 @@ export const recipes = [
         ],
         time: 5,
         description:"Préparer la sauce en mettant tous les ingrédients dans un bol et mélanger. Une fois que le riz est cuit, placer le riz dans des bols. Verser la sauce au centre (2 cuillères à soupe).",
-        appliance: "Casserole",
         ustensils:["cuillère en bois"]
+    },
+    {
+        id: 54,
+        image: "Recette54.webp",
+        name: "Pâte à crêpes",
+        servings: 15,
+        ingredients: [
+            {
+                "ingredient": "Farine",
+                "quantity": 300,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Huile",
+                "quantity": 2,
+                "unit": "cuillères à soupe"
+            },
+            {
+                "ingredient": "Oeuf",
+                "quantity": 3,
+                "unit": "entiers"
+            },
+            {
+                "ingredient": "Lait",
+                "quantity": 60,
+                "unit": "cl"
+            },
+            {
+                "ingredient": "Sucre",
+                "quantity": 3,
+                "unit": "cuillères à soupe"
+            },
+            {
+                "ingredient": "Beurre",
+                "quantity": 50,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Rhum",
+                "quantity": 5,
+                "unit": "cl"
+            }
+        ],
+        time: 10,
+        description:"Mettre la farine dans une terrine et former un puits. Y déposer les oeufs entiers, le sucre, l'huile et le beurre. Mélanger délicatement avec un fouet en ajoutant au fur et à mesure le lait. La pâte ainsi obtenue doit avoir une consistance d'un liquide légèrement épais. Parfumer de rhum. Faire chauffer une poêle antiadhésive et la huiler très légèrement à l'aide d'un papier Essuie-tout. Y verser une louche de pâte, la répartir dans la poêle puis attendre qu'elle soit cuite d'un côté avant de la retourner. Cuire ainsi toutes les crêpes à feu doux.",
+        appliance: "Plaque de cuisson",
+        ustensils:["cuillère en bois", "louche","fouet","saladier","poêle" ]
     }
 ];
